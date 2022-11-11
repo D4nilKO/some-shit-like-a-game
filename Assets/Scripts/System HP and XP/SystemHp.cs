@@ -36,6 +36,9 @@ public class SystemHp : MonoBehaviour
         {
             RecountHp(maxHp);
         }
+        
+        var cuHpPercent = curHp / maxHp;
+        HealthChanged?.Invoke(cuHpPercent);
     }
 
     public void RecountHp(float deltaHp)

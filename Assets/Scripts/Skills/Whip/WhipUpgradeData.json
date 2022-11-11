@@ -1,0 +1,74 @@
+﻿{
+  "skillUpgrade": [
+    {
+      "lvl": 1,
+      "timeBtwSpawns": 4,
+      "countOfStrikes": 1,
+      "damage": 37.5,
+      "upgradeText": "Cooldown 4s"
+    },
+    {
+      "lvl": 2,
+      "timeBtwSpawns": 3,
+      "countOfStrikes": 1,
+      "damage": 50,
+      "upgradeText": "Reduce cooldown 25% and Damage increased by 30%"
+    },
+    {
+      "lvl": 3,
+      "timeBtwSpawns": 2.5,
+      "countOfStrikes": 2,
+      "damage": 50,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 4,
+      "timeBtwSpawns": 2.5,
+      "countOfStrikes": 2,
+      "damage": 75,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 5,
+      "timeBtwSpawns": 2,
+      "countOfStrikes": 2,
+      "damage": 100,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 6,
+      "timeBtwSpawns": 2,
+      "countOfStrikes": 4,
+      "damage": 100,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 7,
+      "timeBtwSpawns": 1.75,
+      "countOfStrikes": 4,
+      "damage": 150,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 8,
+      "timeBtwSpawns": 1.5,
+      "countOfStrikes": 6,
+      "damage": 200,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 9,
+      "timeBtwSpawns": 1.25,
+      "countOfStrikes": 6,
+      "damage": 250,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 10,
+      "timeBtwSpawns": 1,
+      "countOfStrikes": 8,
+      "damage": 250,
+      "upgradeText": "ass"
+    }
+  ]
+}

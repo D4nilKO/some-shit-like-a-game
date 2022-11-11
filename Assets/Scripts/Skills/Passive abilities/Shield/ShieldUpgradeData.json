@@ -1,0 +1,64 @@
+﻿{
+  "skillUpgrade": [
+    {
+      "lvl": 1,
+      "timeBtwSpawns": 25,
+      "startEndurance": 100,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 2,
+      "timeBtwSpawns": 23,
+      "startEndurance": 100,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 3,
+      "timeBtwSpawns": 23,
+      "startEndurance": 150,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 4,
+      "timeBtwSpawns": 21,
+      "startEndurance": 150,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 5,
+      "timeBtwSpawns": 21,
+      "startEndurance": 200,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 6,
+      "timeBtwSpawns": 21,
+      "startEndurance": 250,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 7,
+      "timeBtwSpawns": 19,
+      "startEndurance": 250,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 8,
+      "timeBtwSpawns": 17,
+      "startEndurance": 250,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 9,
+      "timeBtwSpawns": 15,
+      "startEndurance": 250,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 10,
+      "timeBtwSpawns": 10,
+      "startEndurance": 300,
+      "upgradeText": "asss"
+    }
+  ]
+}

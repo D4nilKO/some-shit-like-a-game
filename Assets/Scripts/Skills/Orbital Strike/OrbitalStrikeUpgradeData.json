@@ -1,0 +1,74 @@
+﻿{
+  "skillUpgrade": [
+    {
+      "lvl": 1,
+      "timeBtwSpawns": 5,
+      "countOfStrikes": 1,
+      "damage": 100,
+      "upgradeText": "Cooldown 5s, damage 100"
+    },
+    {
+      "lvl": 2,
+      "timeBtwSpawns": 4.5,
+      "countOfStrikes": 1,
+      "damage": 150,
+      "upgradeText": "Cooldown decreases by 0.5, damage increases by 50"
+    },
+    {
+      "lvl": 3,
+      "timeBtwSpawns": 4,
+      "countOfStrikes": 2,
+      "damage": 150,
+      "upgradeText": "Cooldown decreases by 0.5, strikes increases by 1"
+    },
+    {
+      "lvl": 4,
+      "timeBtwSpawns": 3.5,
+      "countOfStrikes": 2,
+      "damage": 200,
+      "upgradeText": "Cooldown decreases by 0.5, damage increases by 50"
+    },
+    {
+      "lvl": 5,
+      "timeBtwSpawns": 3.25,
+      "countOfStrikes": 3,
+      "damage": 250,
+      "upgradeText": "Cooldown decreases by 0.25, strikes increases by 1"
+    },
+    {
+      "lvl": 6,
+      "timeBtwSpawns": 3,
+      "countOfStrikes": 4,
+      "damage": 300,
+      "upgradeText": "Cooldown decreases by 0.25, strikes increases by 1"
+    },
+    {
+      "lvl": 7,
+      "timeBtwSpawns": 3,
+      "countOfStrikes": 5,
+      "damage": 400,
+      "upgradeText": "Strikes increases by 1, damage increases by 100"
+    },
+    {
+      "lvl": 8,
+      "timeBtwSpawns": 3,
+      "countOfStrikes": 6,
+      "damage": 450,
+      "upgradeText": "Strikes increases by 1, damage increases by 50"
+    },
+    {
+      "lvl": 9,
+      "timeBtwSpawns": 2.75,
+      "countOfStrikes": 6,
+      "damage": 500,
+      "upgradeText": "Cooldown decreases by 0.25, damage increases by 50"
+    },
+    {
+      "lvl": 10,
+      "timeBtwSpawns": 2.5,
+      "countOfStrikes": 8,
+      "damage": 1500,
+      "upgradeText": "Cooldown decreases by 0.25, strikes increases by 2, damage increases by 1000!"
+    }
+  ]
+}

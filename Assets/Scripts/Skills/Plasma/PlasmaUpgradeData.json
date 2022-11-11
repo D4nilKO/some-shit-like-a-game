@@ -1,0 +1,74 @@
+﻿{
+  "skillUpgrade": [
+    {
+      "lvl": 1,
+      "timeBtwSpawns": 4,
+      "timeBtwActions": 0.5,
+      "damage": 10,
+      "upgradeText": "Cooldown 4s"
+    },
+    {
+      "lvl": 2,
+      "timeBtwSpawns": 3,
+      "timeBtwActions": 0.5,
+      "damage": 20,
+      "upgradeText": "Reduce cooldown 25% and Damage increased by 30%"
+    },
+    {
+      "lvl": 3,
+      "timeBtwSpawns": 2,
+      "timeBtwActions": 0.5,
+      "damage": 40,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 4,
+      "timeBtwSpawns": 1.75,
+      "timeBtwActions": 1,
+      "damage": 100,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 5,
+      "timeBtwSpawns": 1.5,
+      "timeBtwActions": 1,
+      "damage": 300,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 6,
+      "timeBtwSpawns": 1.5,
+      "timeBtwActions": 1,
+      "damage": 350,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 7,
+      "timeBtwSpawns": 1.5,
+      "timeBtwActions": 1,
+      "damage": 400,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 8,
+      "timeBtwSpawns": 1.5,
+      "timeBtwActions": 1.5,
+      "damage": 400,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 9,
+      "timeBtwSpawns": 1.5,
+      "timeBtwActions": 1.5,
+      "damage": 500,
+      "upgradeText": "ass"
+    },
+    {
+      "lvl": 10,
+      "timeBtwSpawns": 1,
+      "timeBtwActions": 1.5,
+      "damage": 1000,
+      "upgradeText": "ass"
+    }
+  ]
+}

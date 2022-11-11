@@ -1,0 +1,74 @@
+﻿{
+  "skillUpgrade": [
+    {
+      "lvl": 1,
+      "timeBtwSpawns": 6,
+      "timeBtwActions": 2,
+      "damage": 5,
+      "upgradeText": "Cooldown 6s"
+    },
+    {
+      "lvl": 2,
+      "timeBtwSpawns": 5,
+      "timeBtwActions": 2,
+      "damage": 10,
+      "upgradeText": "Reduce cooldown 15% and Damage increases by 100%"
+    },
+    {
+      "lvl": 3,
+      "timeBtwSpawns": 3.5,
+      "timeBtwActions": 2.5,
+      "damage": 10,
+      "upgradeText": "Reduce cooldown 30%"
+    },
+    {
+      "lvl": 4,
+      "timeBtwSpawns": 3,
+      "timeBtwActions": 2.5,
+      "damage": 15,
+      "upgradeText": "Reduce cooldown 15% and Damage increases by 50%"
+    },
+    {
+      "lvl": 5,
+      "timeBtwSpawns": 2,
+      "timeBtwActions": 3,
+      "damage": 20,
+      "upgradeText": "Reduce cooldown 30% and Damage increases by 30%"
+    },
+    {
+      "lvl": 6,
+      "timeBtwSpawns": 1.75,
+      "timeBtwActions": 3,
+      "damage": 25,
+      "upgradeText": "Reduce cooldown 15% and Damage increases by 25%"
+    },
+    {
+      "lvl": 7,
+      "timeBtwSpawns": 1.5,
+      "timeBtwActions": 3,
+      "damage": 30,
+      "upgradeText": "Reduce cooldown 15% and Damage increases by 15%"
+    },
+    {
+      "lvl": 8,
+      "timeBtwSpawns": 2.5,
+      "timeBtwActions": 3.5,
+      "damage": 60,
+      "upgradeText": "Increases cooldown 30% and Damage increases by 100%"
+    },
+    {
+      "lvl": 9,
+      "timeBtwSpawns": 2,
+      "timeBtwActions": 4,
+      "damage": 70,
+      "upgradeText": "Reduce cooldown 25% and Damage increases by 15%"
+    },
+    {
+      "lvl": 10,
+      "timeBtwSpawns": 2,
+      "timeBtwActions": 4,
+      "damage": 200,
+      "upgradeText": "Damage increases by 300%"
+    }
+  ]
+}

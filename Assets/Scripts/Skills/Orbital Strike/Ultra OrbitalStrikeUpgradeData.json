@@ -1,0 +1,11 @@
+﻿{
+  "skillUpgrade": [
+    {
+      "lvl": 1,
+      "timeBtwSpawns": 1,
+      "countOfStrikes": 15,
+      "damage": 10000,
+      "upgradeText": "Cooldown 5s, damage 100"
+    }
+  ]
+}

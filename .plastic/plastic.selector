@@ -1,0 +1,4 @@
+repository "some shit like a game@Dxnil@cloud"
+  path "/"
+    br "/main"
+    co "/main"

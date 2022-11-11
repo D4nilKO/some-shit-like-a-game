@@ -1,0 +1,53 @@
+﻿{
+  "skillUpgrade": [
+    {
+      "lvl": 1,
+      "extraHpMultiplier": 1.2,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 2,
+      "extraHpMultiplier": 1.2,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 3,
+      "extraHpMultiplier": 1.2,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 4,
+      "extraHpMultiplier": 1.2,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 5,
+      "extraHpMultiplier": 1.2,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 6,
+      "extraHpMultiplier": 1.2,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 7,
+      "extraHpMultiplier": 1.2,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 8,
+      "extraHpMultiplier": 1.2,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 9,
+      "extraHpMultiplier": 1.2,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 10,
+      "extraHpMultiplier": 2,
+      "upgradeText": "asss"
+    }
+  ]}

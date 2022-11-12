@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2223696591954977710}
   - component: {fileID: 4889556039059234505}
   - component: {fileID: 263791525893126360}
+  - component: {fileID: 4539314427630303962}
   m_Layer: 0
   m_Name: Battery xp 1
   m_TagString: Battery
@@ -125,3 +126,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xp: 2
+--- !u!114 &4539314427630303962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535702345119490073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1381691965f146d6b58731a177713077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDespawn: 60

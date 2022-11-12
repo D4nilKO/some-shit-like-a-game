@@ -9,9 +9,10 @@ public class ItemSpawner : MonoBehaviour
 {
     private FastRandom random = new FastRandom();
 
-    [SerializeField]private GameObject[] objectsToSpawn;
+    [SerializeField] private GameObject[] objectsToSpawn;
 
     private Vector3 spawnPointVector3;
+    [SerializeField] private Transform container;
 
     [SerializeField] private float startTimeBtwSpawns = 3f;
     [SerializeField] private float radius = 25f;
@@ -50,6 +51,7 @@ public class ItemSpawner : MonoBehaviour
         {
             CreateElement(go);
         }
+
         StartCoroutine(Timer());
     }
 
@@ -58,6 +60,7 @@ public class ItemSpawner : MonoBehaviour
         spawnPointVector3 = random.GetInsideCircle(radius);
         spawnPointVector3 += Player.playerTransform.position;
 
-        NightPool.Spawn(objectToCreate, spawnPointVector3);
+        var curItem = NightPool.Spawn(objectToCreate, spawnPointVector3);
+        curItem.transform.SetParent(container);
     }
 }

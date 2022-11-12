@@ -1,7 +1,7 @@
 using NTC.Global.Pool;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class BatteryHealth : MonoBehaviour
 {
     public float hp;
 
@@ -11,14 +11,6 @@ public class Health : MonoBehaviour
         {
             Player.systemHpScr.RecountHp(hp);
             NightPool.Despawn(gameObject);
-
-            //Death();
         }
     }
-
-    // public void Death()
-    // {
-    //     NightPool.Despawn(gameObject);
-    // }
-
 }

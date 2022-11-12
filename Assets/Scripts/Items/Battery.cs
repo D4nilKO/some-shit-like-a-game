@@ -12,14 +12,6 @@ public class Battery : MonoBehaviour
         {
             Player.systemXpScr.RecountXp(xp);
             NightPool.Despawn(gameObject);
-            
-            //Death();
         }
     }
-
-    // public void Death()
-    // {
-    //     NightPool.Despawn(gameObject);
-    // }
-    
 }

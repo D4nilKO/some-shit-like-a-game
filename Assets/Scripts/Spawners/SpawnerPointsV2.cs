@@ -10,6 +10,7 @@ public class SpawnerPointsV2 : MonoBehaviour
     public int maxCountSpawnEnemies = 20;
 
     private Vector3 spawnPoint; // точка спавна
+    [SerializeField]private Transform container;
     private GameObject curEnemy; //Текущий враг
     private GameObject parentPoint; // родительский объект, используется для позиционирования точек
     private GameObject targetAroundRotate; //Цель, вокруг которого будет произведено вращение
@@ -141,9 +142,13 @@ public class SpawnerPointsV2 : MonoBehaviour
     private void SpawnEnemies()
     {
         spawnPoint = gameObject.transform.position;
-        curEnemy = NightPool.Spawn(GetRandomEnemyType(), spawnPoint);
         zAngleEnemy = random.Range(0f, 350f); // рандомный добавочный угол через быстрый рандом для поворота врага
-        curEnemy.transform.Rotate(0f, 0f, zAngleEnemy);
+        
+        //curEnemy = NightPool.Spawn(GetRandomEnemyType(), spawnPoint);
+        curEnemy = NightPool.Spawn(GetRandomEnemyType(), spawnPoint, Quaternion.Euler(0f, 0f, zAngleEnemy));
+
+        curEnemy.transform.SetParent(container);
+        
         RotatePoint();
     }
 

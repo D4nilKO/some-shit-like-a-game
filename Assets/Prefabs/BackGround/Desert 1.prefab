@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3894750511602512089}
   - component: {fileID: 6680367747996142169}
   m_Layer: 12
-  m_Name: Desert1
+  m_Name: Desert 1
   m_TagString: backGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

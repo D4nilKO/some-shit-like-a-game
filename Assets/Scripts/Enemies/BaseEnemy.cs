@@ -6,14 +6,14 @@ namespace Enemies
 {
     public abstract class BaseEnemy : MonoBehaviour
     {
-        public float speed; //скорость врага
+        [SerializeField]private float speed; //скорость врага
 
         [SerializeField] private float maxHp;
         public float curHp;
 
         [SerializeField] private float xp;
 
-        public bool isInTrigger;
+        private bool isInTrigger;
 
         private const float StartTimeBtwDamage = 0.1f;
         private float timeBtwDamage;
@@ -48,20 +48,23 @@ namespace Enemies
             curHp += deltaHp;
             if (curHp <= 0)
             {
-                Player.systemXpScr.RecountXp(xp); // добавление опыта 
                 Death(); //удаление крипа
             }
         }
 
         public void Death()
         {
+            Player.systemXpScr.RecountXp(xp); // добавление опыта
             NightPool.Despawn(gameObject);
+            Stats.EnemyKilled++;
+            
             Initialization();
         }
 
         public virtual void DeathFromDeSpawnTor()
         {
-            Death();
+            NightPool.Despawn(gameObject);
+            Initialization();
         }
 
         #region PLAYER RECOUNT HP

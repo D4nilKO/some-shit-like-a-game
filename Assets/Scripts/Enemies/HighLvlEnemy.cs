@@ -7,7 +7,7 @@ namespace Enemies
     public class HighLvlEnemy : StandardEnemy
     {
         private MoveTrack moveTrackScr;
-        private float distance = 20;
+        private float distance = 20f;
 
         private void Start()
         {
@@ -23,7 +23,6 @@ namespace Enemies
             transform.rotation =
                 Quaternion.Euler(0f, 0f, rotationZ); // поворачивает объект в сторону куда идет персонаж
 
-            var pos1 = transform.position;
             transform.position = Player.playerTransform.position;
             transform.Translate(Vector3.right * distance);
             transform.rotation = Quaternion.Euler(Vector3.zero);

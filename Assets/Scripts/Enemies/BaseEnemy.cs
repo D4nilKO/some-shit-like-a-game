@@ -6,7 +6,7 @@ namespace Enemies
 {
     public abstract class BaseEnemy : MonoBehaviour
     {
-        [SerializeField]private float speed; //скорость врага
+        [SerializeField] private float speed; //скорость врага
 
         [SerializeField] private float maxHp;
         public float curHp;
@@ -45,7 +45,7 @@ namespace Enemies
 
         public void RecountHp(float deltaHp)
         {
-            curHp += deltaHp;
+            curHp += deltaHp * Stats.SkillDamageMultiplier;
             if (curHp <= 0)
             {
                 Death(); //удаление крипа
@@ -57,7 +57,7 @@ namespace Enemies
             Player.systemXpScr.RecountXp(xp); // добавление опыта
             NightPool.Despawn(gameObject);
             Stats.EnemyKilled++;
-            
+
             Initialization();
         }
 

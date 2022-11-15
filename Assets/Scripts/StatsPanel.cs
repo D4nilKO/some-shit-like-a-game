@@ -9,7 +9,8 @@ public class StatsPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI curHpText;
     [SerializeField] private TextMeshProUGUI maxHpText;
     [SerializeField] private TextMeshProUGUI skillDamageMultiplierText;
-    [SerializeField] private TextMeshProUGUI armorText;
+    [SerializeField] private TextMeshProUGUI damageTakingMultiplierText;
+    [SerializeField] private TextMeshProUGUI xpGainMultiplierText;
 
     private void Awake()
     {
@@ -32,9 +33,28 @@ public class StatsPanel : MonoBehaviour
 
     private void OnEnable()
     {
-        enemyKilledText.text = Stats.EnemyKilled.ToString(CultureInfo.CurrentCulture);
-        curHpText.text = Player.systemHpScr.curHp.ToString(CultureInfo.CurrentCulture);
-        maxHpText.text = Player.systemHpScr.maxHp.ToString(CultureInfo.CurrentCulture);
-        skillDamageMultiplierText.text = (Stats.SkillDamageMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%";
+        ShowStats();
+    }
+
+    private void ShowStats()
+    {
+        NullCheckAndSetText(enemyKilledText, Stats.EnemyKilled.ToString(CultureInfo.CurrentCulture));
+        NullCheckAndSetText(curHpText, Player.systemHpScr.curHp.ToString(CultureInfo.CurrentCulture));
+        NullCheckAndSetText(maxHpText, Player.systemHpScr.maxHp.ToString(CultureInfo.CurrentCulture));
+        NullCheckAndSetText(skillDamageMultiplierText,
+            (Stats.SkillDamageMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
+        NullCheckAndSetText(damageTakingMultiplierText,
+            (Stats.DamageTakingMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
+        NullCheckAndSetText(xpGainMultiplierText,
+            (Stats.XpGainMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
+    }
+
+    private void NullCheckAndSetText(TextMeshProUGUI textObj, String value)
+    {
+        if (textObj != null)
+        {
+            textObj.text = value;
+        }
+        else print("null");
     }
 }

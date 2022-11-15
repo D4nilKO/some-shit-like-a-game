@@ -43,6 +43,8 @@ public class SystemHp : MonoBehaviour
 
     public void RecountHp(float deltaHp)
     {
+        deltaHp *= Stats.DamageTakingMultiplier;
+        
         if (deltaHp < 0 && shieldScr.isShieldEnable && shieldScr.Attribute.lvl != 0)
         {
             shieldScr.RecountEndurance(deltaHp);

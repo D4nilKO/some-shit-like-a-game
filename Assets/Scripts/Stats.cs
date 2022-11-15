@@ -41,8 +41,7 @@ public static class Stats
             _skillDamageMultiplier = value;
         }
     }
-    
-    //
+
     private static float _startDamageTakingMultiplier = 1f;
 
     public static float StartDamageTakingMultiplier
@@ -64,6 +63,30 @@ public static class Stats
         {
             if (value < 0) throw new ArgumentOutOfRangeException(nameof(value));
             _damageTakingMultiplier = value;
+        }
+    }
+
+    private static float _startXpGainMultiplier = 1f;
+
+    public static float StartXpGainMultiplier
+    {
+        get => _startXpGainMultiplier;
+        set
+        {
+            if (value < 0) throw new ArgumentOutOfRangeException(nameof(value));
+            _startXpGainMultiplier = value;
+        }
+    }
+
+    private static float _xpGainMultiplier = StartXpGainMultiplier;
+
+    public static float XpGainMultiplier
+    {
+        get => _xpGainMultiplier;
+        set
+        {
+            if (value < 0) throw new ArgumentOutOfRangeException(nameof(value));
+            _xpGainMultiplier = value;
         }
     }
 }

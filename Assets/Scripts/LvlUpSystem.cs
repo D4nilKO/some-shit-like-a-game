@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -7,7 +6,7 @@ using static NonRepeatingRandom;
 
 public class LvlUpSystem : MonoBehaviour
 {
-    [FormerlySerializedAs("spells")] public Skill[] skills;
+    public List<Skill> skills;
 
     public SystemXp systemXpScr;
 
@@ -16,7 +15,7 @@ public class LvlUpSystem : MonoBehaviour
     public event Action LvlUpChooseEvent;
 
     private TimeManager timeManagerScr;
-    
+
     private void Awake()
     {
         systemXpScr.LvlIncreaseEvent += LvlUpShuffle; // подписались
@@ -32,10 +31,10 @@ public class LvlUpSystem : MonoBehaviour
     {
         SetAbilityPanel(false);
     }
-    
+
     private void LvlUpShuffle()
     {
-        Shuffle(skills);
+        ShuffleList(skills);
 
         LvlUpChooseEvent?.Invoke();
 
@@ -54,6 +53,11 @@ public class LvlUpSystem : MonoBehaviour
         {
             skillScr.Attribute.startLvl = 1;
             skillScr.enabled = true;
+        }
+
+        if (!skillScr.Attribute.isUpgradeAfterMaxLvl && skillScr.Attribute.lvl == skillScr.Attribute.maxLvl)
+        {
+            skills.Remove(skillScr);
         }
 
         SetAbilityPanel(false);

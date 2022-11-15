@@ -24,4 +24,6 @@ public class AttributeSkill : ScriptableObject
 
     [NonSerialized] public float timeBtwSpawns;
     [NonSerialized] public float timeBtwActions;
+    
+    public bool isUpgradeAfterMaxLvl = true;
 }

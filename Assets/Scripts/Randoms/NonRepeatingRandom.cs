@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
 
@@ -14,7 +15,7 @@ public class NonRepeatingRandom : MonoBehaviour
     /// </summary>
     /// <typeparam name="T">Array element type.</typeparam>
     /// <param name="array">Array to shuffle.</param>
-    public static void Shuffle<T>(T[] array)
+    public static void ShuffleArray<T>(T[] array)
     {
         int n = array.Length;
         for (int i = 0; i < (n - 1); i++)
@@ -28,16 +29,30 @@ public class NonRepeatingRandom : MonoBehaviour
             array[i] = t;
         }
     }
+    public static void ShuffleList<T>(List<T> list)
+    {
+        int n = list.Count;
+        for (int i = 0; i < (n - 1); i++)
+        {
+            // Use Next on random instance with an argument.
+            // ... The argument is an exclusive bound.
+            //     So we will not go past the end of the array.
+            int r = i + _random.Next(n - i);
+            T t = list[r];
+            list[r] = list[i];
+            list[i] = t;
+        }
+    }
     
     
     private static void Main()
     {
         int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        Shuffle(array);
+        ShuffleArray(array);
         Console.WriteLine("SHUFFLE: {0}", string.Join(",", array));
         
         string[] array2 = { "bird", "frog", "cat" };
-        Shuffle(array2);
+        ShuffleArray(array2);
         Console.WriteLine("SHUFFLE: {0}", string.Join(",", array2));
     }
 }

@@ -38,6 +38,7 @@ public class SystemXp : MonoBehaviour
 
     public void RecountXp(float deltaXp)
     {
+        deltaXp *= Stats.XpGainMultiplier;
         while (true)
         {
             curXp += deltaXp;

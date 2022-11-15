@@ -1,0 +1,19 @@
+﻿{
+  "skillUpgrade": [
+    {
+      "lvl": 1,
+      "xpMultiplier": 0.1,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 2,
+      "xpMultiplier": 0.1,
+      "upgradeText": "asss"
+    },
+    {
+      "lvl": 3,
+      "xpMultiplier": 0.1,
+      "upgradeText": "asss"
+    }
+  ]
+}

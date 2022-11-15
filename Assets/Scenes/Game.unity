@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 26965221}
   - component: {fileID: 26965222}
   m_Layer: 0
-  m_Name: Skills
+  m_Name: Skills Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6245,6 +6245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31817994d50443ffac3c5b06615e8232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kills: []
   skills:
   - {fileID: 2058738132}
   - {fileID: 2058738130}
@@ -6252,6 +6253,7 @@ MonoBehaviour:
   - {fileID: 2058738135}
   - {fileID: 2058738140}
   - {fileID: 2058738141}
+  - {fileID: 2058738142}
   systemXpScr: {fileID: 2058738137}
   abilityPanel: {fileID: 1452644903}
 --- !u!1 &1438542007
@@ -9009,6 +9011,7 @@ GameObject:
   - component: {fileID: 2058738134}
   - component: {fileID: 2058738141}
   - component: {fileID: 2058738140}
+  - component: {fileID: 2058738142}
   - component: {fileID: 2058738137}
   - component: {fileID: 2058738136}
   - component: {fileID: 2058738138}
@@ -9365,6 +9368,21 @@ MonoBehaviour:
   overExtraHpMultiplier: 1.05
   attribute: {fileID: 11400000, guid: 12a82cd6027e1cb47b9b1e854d0c54cb, type: 2}
   capacitorSkillUpgradeList:
+    skillUpgrade: []
+--- !u!114 &2058738142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058738120}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b43542edf644a52b7e0be1cdf91a988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attribute: {fileID: 11400000, guid: 17a4735d89508e24ea6a14848a7dfef3, type: 2}
+  memorySkillUpgradeList:
     skillUpgrade: []
 --- !u!1 &2062342619
 GameObject:

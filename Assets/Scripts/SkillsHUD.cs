@@ -35,8 +35,9 @@ public class SkillsHUD : MonoBehaviour
     private void ShowSkill()
     {
         lvlUpSystemScr.SetAbilityPanel(true);
-        skill = lvlUpSystemScr.skills[index];
 
+        skill = lvlUpSystemScr.skills[index];
+        
         nameText.text = skill.Attribute.name;
         //print(skill + " lvl = " + skill.Attribute.lvl);
         if (skill.Attribute.lvl == 0)
@@ -56,10 +57,10 @@ public class SkillsHUD : MonoBehaviour
 
         imageObject.sprite = skill.Attribute.icon != null ? skill.Attribute.icon : null;
 
-        #endregion
-
         //раскомментить когда уйдет временное
         //imageObject.sprite = skill.Attribute.icon;
+        
+        #endregion
     }
 
     public void Choice()

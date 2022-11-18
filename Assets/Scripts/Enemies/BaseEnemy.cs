@@ -19,14 +19,15 @@ namespace Enemies
         private float timeBtwDamage;
 
         public float damage;
-
+        [SerializeField] private bool isTeleportToPlayer = true;
+        private MoveTrack moveTrackScr;
+        private const float DistanceToTeleportFromPlayer = 20f;
 
         public virtual void Initialization()
         {
             curHp = maxHp;
         }
 
-        //движение на игрока
         public virtual void Move()
         {
             transform.position = Vector2.MoveTowards(gameObject.transform.position, Player.playerTransform.position,
@@ -36,6 +37,11 @@ namespace Enemies
         private void Start()
         {
             Initialization();
+
+            if (isTeleportToPlayer)
+            {
+                moveTrackScr = Player.playerGameObject.gameObject.GetComponent<MoveTrack>();
+            }
         }
 
         private void FixedUpdate()
@@ -61,10 +67,36 @@ namespace Enemies
             Initialization();
         }
 
+        public void TouchToDeSpawnTor()
+        {
+            if (isTeleportToPlayer)
+            {
+                TeleportToNearAreaPlayer();
+            }
+            else
+            {
+                DeathFromDeSpawnTor();
+            }
+        }
+
         public virtual void DeathFromDeSpawnTor()
         {
             NightPool.Despawn(gameObject);
             Initialization();
+        }
+
+        private void TeleportToNearAreaPlayer()
+        {
+            var vectorTrack = moveTrackScr.MovementLogic();
+            float rotationZ = 0;
+            rotationZ =
+                Mathf.Atan2(vectorTrack.y, vectorTrack.x) * Mathf.Rad2Deg; // считает поворот по Z
+            transform.rotation =
+                Quaternion.Euler(0f, 0f, rotationZ); // поворачивает объект в сторону куда идет персонаж
+
+            transform.position = Player.playerTransform.position;
+            transform.Translate(Vector3.right * DistanceToTeleportFromPlayer);
+            transform.rotation = Quaternion.Euler(Vector3.zero);
         }
 
         #region PLAYER RECOUNT HP
@@ -94,7 +126,7 @@ namespace Enemies
             }
         }
 
-        protected IEnumerator DamageObject()
+        private IEnumerator DamageObject()
         {
             isInTrigger = false;
 
@@ -108,7 +140,7 @@ namespace Enemies
             DamagingPlayer();
         }
 
-        protected void DamagingPlayer()
+        private void DamagingPlayer()
         {
             Player.systemHpScr.RecountHp(-damage);
             isInTrigger = true;

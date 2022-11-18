@@ -9,7 +9,7 @@ public class DeSpawnTor : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             var enemyScr = other.GetComponent<BaseEnemy>();
-            enemyScr.DeathFromDeSpawnTor();
+            enemyScr.TouchToDeSpawnTor();
         }
 
         if (other.CompareTag("Battery"))

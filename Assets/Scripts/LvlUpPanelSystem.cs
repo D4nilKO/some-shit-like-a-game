@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using static NonRepeatingRandom;
 
-public class LvlUpSystem : MonoBehaviour
+public class LvlUpPanelSystem : MonoBehaviour
 {
     public List<Skill> skills;
 
@@ -18,13 +17,13 @@ public class LvlUpSystem : MonoBehaviour
 
     private void Awake()
     {
-        systemXpScr.LvlIncreaseEvent += LvlUpShuffle; // подписались
+        systemXpScr.LvlIncreaseEvent += LvlUpIncreasedCheck; // подписались
         timeManagerScr = GetComponent<TimeManager>();
     }
 
     private void OnDestroy()
     {
-        systemXpScr.LvlIncreaseEvent -= LvlUpShuffle; // отписались
+        systemXpScr.LvlIncreaseEvent -= LvlUpIncreasedCheck; // отписались
     }
 
     private void Start()
@@ -32,8 +31,10 @@ public class LvlUpSystem : MonoBehaviour
         SetAbilityPanel(false);
     }
 
-    private void LvlUpShuffle()
+    private void LvlUpIncreasedCheck()
     {
+        if (systemXpScr.countOfLvlUpsAtOnce <= 0) return;
+        SetAbilityPanel(true);
         ShuffleList(skills);
 
         LvlUpChooseEvent?.Invoke();
@@ -43,7 +44,6 @@ public class LvlUpSystem : MonoBehaviour
 
     public void Choice(Skill skillScr)
     {
-        StartCoroutine(timeManagerScr.WaitBeforeContinueTime());
         if (skillScr.Attribute.startLvl != 0)
         {
             skillScr.Attribute.lvl++;
@@ -61,6 +61,12 @@ public class LvlUpSystem : MonoBehaviour
         }
 
         SetAbilityPanel(false);
+
+        systemXpScr.countOfLvlUpsAtOnce--;
+        LvlUpIncreasedCheck();
+
+        if (systemXpScr.countOfLvlUpsAtOnce > 0) return;
+        StartCoroutine(timeManagerScr.WaitBeforeContinueTime());
     }
 
     public void SetAbilityPanel(bool set)

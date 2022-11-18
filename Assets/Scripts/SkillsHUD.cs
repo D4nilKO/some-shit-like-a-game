@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 public class SkillsHUD : MonoBehaviour
 {
-    [FormerlySerializedAs("skillSystemScr")] [SerializeField]
-    private LvlUpSystem lvlUpSystemScr;
+    [FormerlySerializedAs("lvlUpSystemScr")] [FormerlySerializedAs("skillSystemScr")] [SerializeField]
+    private LvlUpPanelSystem lvlUpPanelSystemScr;
 
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI buyUpgradeText;
@@ -24,19 +24,19 @@ public class SkillsHUD : MonoBehaviour
     private void Awake()
     {
         index = transform.GetSiblingIndex();
-        lvlUpSystemScr.LvlUpChooseEvent += ShowSkill; // подписались
+        lvlUpPanelSystemScr.LvlUpChooseEvent += ShowSkill; // подписались
     }
 
     private void OnDestroy()
     {
-        lvlUpSystemScr.LvlUpChooseEvent -= ShowSkill; // отписались
+        lvlUpPanelSystemScr.LvlUpChooseEvent -= ShowSkill; // отписались
     }
     
     private void ShowSkill()
     {
-        lvlUpSystemScr.SetAbilityPanel(true);
+        lvlUpPanelSystemScr.SetAbilityPanel(true);
 
-        skill = lvlUpSystemScr.skills[index];
+        skill = lvlUpPanelSystemScr.skills[index];
         
         nameText.text = skill.Attribute.name;
         //print(skill + " lvl = " + skill.Attribute.lvl);
@@ -65,6 +65,6 @@ public class SkillsHUD : MonoBehaviour
 
     public void Choice()
     {
-        lvlUpSystemScr.Choice(skill);
+        lvlUpPanelSystemScr.Choice(skill);
     }
 }

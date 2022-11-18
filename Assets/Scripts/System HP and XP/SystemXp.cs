@@ -1,26 +1,53 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Events;
 using TMPro;
 
 public class SystemXp : MonoBehaviour
 {
-    private int curLvl;
     [SerializeField] public int startLvl = 1;
-    private float curXp = 0;
-    [SerializeField] private float startXpToLvlUp = 10;
-    private float xpToLvlUp;
-    
-    [Header("Settings")]
-    [SerializeField] private int scaleArithmetic = 10;
-    [SerializeField] private float scaleGeometric = 1.08f;
 
-    public TypeOfProgress typeOfProgress;
+    private int curLvl;
+
+    private int CurLvl
+    {
+        get => curLvl;
+        set
+        {
+            countOfLvlUpsAtOnce = value - curLvl;
+            LvlIncreaseEvent?.Invoke();
+            curLvl = value;
+            meshPro.text = "LVL " + CurLvl;
+        }
+    }
+
+    [HideInInspector] public int countOfLvlUpsAtOnce;
+
+    private float curXp;
+
+    private float CurXp
+    {
+        get => curXp;
+        set
+        {
+            curXp = value;
+            var cuXpPercent = CurXp / xpToLvlUp;
+            XpChanged?.Invoke(cuXpPercent);
+        }
+    }
 
     public event Action<float> XpChanged;
 
-    public enum TypeOfProgress
+    [SerializeField] private float startXpToLvlUp = 10;
+    private float xpToLvlUp;
+
+    [Header("Settings")] [SerializeField] private int scaleArithmetic = 10;
+
+    [SerializeField] private float scaleGeometric = 1.08f;
+
+    public TypeOfXpProgress typeOfXpProgress;
+
+
+    public enum TypeOfXpProgress
     {
         Arithmetic,
         Geometric
@@ -33,7 +60,7 @@ public class SystemXp : MonoBehaviour
     {
         curLvl = startLvl;
         xpToLvlUp = startXpToLvlUp;
-        XpChanged?.Invoke(0);
+        CurXp = 0f;
     }
 
     public void RecountXp(float deltaXp)
@@ -41,33 +68,27 @@ public class SystemXp : MonoBehaviour
         deltaXp *= Stats.XpGainMultiplier;
         while (true)
         {
-            curXp += deltaXp;
-            
-            var cuXpPercent = curXp / xpToLvlUp;
-            XpChanged?.Invoke(cuXpPercent);
-            
-            if (curXp >= xpToLvlUp)
-            {
-                curLvl++;
-                curXp -= xpToLvlUp;
+            CurXp += deltaXp;
 
-                switch (typeOfProgress)
+            if (CurXp >= xpToLvlUp)
+            {
+                CurLvl++;
+                CurXp -= xpToLvlUp;
+
+                switch (typeOfXpProgress)
                 {
-                    case TypeOfProgress.Arithmetic:
+                    case TypeOfXpProgress.Arithmetic:
                         xpToLvlUp += scaleArithmetic;
                         break;
-                    case TypeOfProgress.Geometric:
+                    case TypeOfXpProgress.Geometric:
                         xpToLvlUp *= scaleGeometric;
                         break;
                     default:
                         break;
                 }
 
-                meshPro.text = "LVL " + curLvl.ToString();
                 deltaXp = 0;
-                
-                LvlIncreaseEvent?.Invoke();
-                
+
                 continue;
             }
 
@@ -77,6 +98,11 @@ public class SystemXp : MonoBehaviour
 
     public void PlusLvl()
     {
-        RecountXp(xpToLvlUp);
+        CurLvl++;
+    }
+
+    public void PlusLvlX10()
+    {
+        CurLvl += 10;
     }
 }

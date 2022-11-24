@@ -6363,7 +6363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ade24ad2b5999478ea15ebec242eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeScale: 1
+  startTimeScale: 20
   secondCounter: 0
   minuteCounter: 0
   startTimePause: 0.7
@@ -6723,7 +6723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1456809179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7169,8 +7169,6 @@ MonoBehaviour:
   countOfAvoidEnemies: 0
   timeManagerScr: {fileID: 1435318912}
   typeOfTimeDecrease: 1
-  startTimeToDestroyPool: 0
-  timeToDestroyPool: 0
 --- !u!1 &1576781535
 GameObject:
   m_ObjectHideFlags: 0

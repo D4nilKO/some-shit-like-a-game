@@ -1,26 +1,28 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class SystemXp : MonoBehaviour
 {
     [SerializeField] public int startLvl = 1;
 
-    private int curLvl;
+    private int currentLevel;
 
-    private int CurLvl
+    private int CurrentLevel
     {
-        get => curLvl;
+        get => currentLevel;
         set
         {
-            countOfLvlUpsAtOnce = value - curLvl;
+            countOfLevelUpsAtOnce = value - currentLevel;
             LvlIncreaseEvent?.Invoke();
-            curLvl = value;
-            meshPro.text = "LVL " + CurLvl;
+            currentLevel = value;
+            meshPro.text = "LVL " + CurrentLevel;
         }
     }
 
-    [HideInInspector] public int countOfLvlUpsAtOnce;
+    [FormerlySerializedAs("countOfLvlUpsAtOnce")] [HideInInspector]
+    public int countOfLevelUpsAtOnce;
 
     private float curXp;
 
@@ -58,7 +60,7 @@ public class SystemXp : MonoBehaviour
 
     private void Start()
     {
-        curLvl = startLvl;
+        currentLevel = startLvl;
         xpToLvlUp = startXpToLvlUp;
         CurXp = 0f;
     }
@@ -72,7 +74,7 @@ public class SystemXp : MonoBehaviour
 
             if (CurXp >= xpToLvlUp)
             {
-                CurLvl++;
+                CurrentLevel++;
                 CurXp -= xpToLvlUp;
 
                 switch (typeOfXpProgress)
@@ -98,11 +100,11 @@ public class SystemXp : MonoBehaviour
 
     public void PlusLvl()
     {
-        CurLvl++;
+        CurrentLevel++;
     }
 
     public void PlusLvlX10()
     {
-        CurLvl += 10;
+        CurrentLevel += 10;
     }
 }

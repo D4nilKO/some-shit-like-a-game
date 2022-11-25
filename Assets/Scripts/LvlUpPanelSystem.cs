@@ -33,7 +33,7 @@ public class LvlUpPanelSystem : MonoBehaviour
 
     private void LvlUpIncreasedCheck()
     {
-        if (systemXpScr.countOfLvlUpsAtOnce <= 0) return;
+        if (systemXpScr.countOfLevelUpsAtOnce <= 0) return;
         SetAbilityPanel(true);
         ShuffleList(skills);
 
@@ -62,10 +62,10 @@ public class LvlUpPanelSystem : MonoBehaviour
 
         SetAbilityPanel(false);
 
-        systemXpScr.countOfLvlUpsAtOnce--;
+        systemXpScr.countOfLevelUpsAtOnce--;
         LvlUpIncreasedCheck();
 
-        if (systemXpScr.countOfLvlUpsAtOnce > 0) return;
+        if (systemXpScr.countOfLevelUpsAtOnce > 0) return;
         StartCoroutine(timeManagerScr.WaitBeforeContinueTime());
     }
 

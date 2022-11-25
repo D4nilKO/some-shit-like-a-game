@@ -49,8 +49,8 @@ public class EnemySpawner : MonoBehaviour
     };
 
     private int poolDestroyIndex;
-    [SerializeField] private float startTimeToDestroyPool;
-    [SerializeField] private float timeToDestroyPool;
+    private float startTimeToDestroyPool;
+    private float timeToDestroyPool;
     private const int SecondsInMinute = 60;
 
     private void Start()
@@ -152,9 +152,8 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemies()
     {
         spawnPoint = gameObject.transform.position;
-        zAngleEnemy = random.Range(0f, 350f); // рандомный добавочный угол через быстрый рандом для поворота врага
-
-        //curEnemy = NightPool.Spawn(GetRandomEnemyType(), spawnPoint);
+        zAngleEnemy = random.Range(0, 350); // рандомный добавочный угол через быстрый рандом для поворота врага
+        
         curEnemy = NightPool.Spawn(GetRandomEnemyType(), spawnPoint, Quaternion.Euler(0f, 0f, zAngleEnemy));
 
         curEnemy.transform.SetParent(container);
@@ -165,7 +164,7 @@ public class EnemySpawner : MonoBehaviour
     private void RotatePoint()
     {
         var angleRandom =
-            random.Range(-40f, 40f); // рандомный добавочный угол через быстрый рандом для вращения точки спавна
+            random.Range(-40, 40); // рандомный добавочный угол через быстрый рандом для вращения точки спавна
         transform.RotateAround(targetAroundRotate.transform.position, Vector3.forward,
             angle + angleRandom); // вращение точки спавна
     }

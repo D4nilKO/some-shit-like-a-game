@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Enemies
 {
-    public abstract class BaseEnemy : MonoBehaviour
+    public abstract class BaseEnemy : MonoBehaviour, IPoolItem
     {
         [SerializeField] private float speed; //скорость врага
 
@@ -58,13 +58,12 @@ namespace Enemies
             }
         }
 
-        public void Death()
+        public virtual void Death()
         {
             Player.systemXpScr.RecountXp(xp); // добавление опыта
             NightPool.Despawn(gameObject);
             Stats.EnemyKilled++;
 
-            Initialization();
         }
 
         public void TouchToDeSpawnTor()
@@ -82,14 +81,12 @@ namespace Enemies
         public virtual void DeathFromDeSpawnTor()
         {
             NightPool.Despawn(gameObject);
-            Initialization();
         }
 
         private void TeleportToNearAreaPlayer()
         {
             var vectorTrack = moveTrackScr.MovementLogic();
-            float rotationZ = 0;
-            rotationZ =
+            var rotationZ =
                 Mathf.Atan2(vectorTrack.y, vectorTrack.x) * Mathf.Rad2Deg; // считает поворот по Z
             transform.rotation =
                 Quaternion.Euler(0f, 0f, rotationZ); // поворачивает объект в сторону куда идет персонаж
@@ -147,5 +144,15 @@ namespace Enemies
         }
 
         #endregion
+
+        public void OnSpawn()
+        {
+            Initialization();
+        }
+
+        public void OnDespawn()
+        {
+            Initialization();
+        }
     }
 }

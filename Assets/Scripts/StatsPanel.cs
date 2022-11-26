@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
@@ -39,8 +40,8 @@ public class StatsPanel : MonoBehaviour
     private void ShowStats()
     {
         NullCheckAndSetText(enemyKilledText, Stats.EnemyKilled.ToString(CultureInfo.CurrentCulture));
-        NullCheckAndSetText(curHpText, Player.systemHpScr.curHp.ToString(CultureInfo.CurrentCulture));
-        NullCheckAndSetText(maxHpText, Player.systemHpScr.maxHp.ToString(CultureInfo.CurrentCulture));
+        NullCheckAndSetText(curHpText, Player.playerHealthScr.CurrentHealth.ToString(CultureInfo.CurrentCulture));
+        NullCheckAndSetText(maxHpText, Player.playerHealthScr.MaxHealth.ToString(CultureInfo.CurrentCulture));
         NullCheckAndSetText(skillDamageMultiplierText,
             (Stats.SkillDamageMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
         NullCheckAndSetText(damageTakingMultiplierText,
@@ -49,12 +50,12 @@ public class StatsPanel : MonoBehaviour
             (Stats.XpGainMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
     }
 
-    private void NullCheckAndSetText(TextMeshProUGUI textObj, String value)
+    private void NullCheckAndSetText([NotNull] TextMeshProUGUI textObj, string value)
     {
         if (textObj != null)
         {
             textObj.text = value;
         }
-        else print("null");
+        else throw new ArgumentNullException(nameof(textObj));
     }
 }

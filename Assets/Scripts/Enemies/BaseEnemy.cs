@@ -139,7 +139,7 @@ namespace Enemies
 
         private void DamagingPlayer()
         {
-            Player.systemHpScr.RecountHp(-damage);
+            Player.playerHealthScr.ApplyDamage(damage);
             isInTrigger = true;
         }
 

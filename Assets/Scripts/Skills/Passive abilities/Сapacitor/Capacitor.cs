@@ -1,9 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Capacitor : PassiveSkill //regen hp and increases max hp
 {
-    [SerializeField] private SystemHp systemHpScr;
+    [FormerlySerializedAs("systemHpScr")] [SerializeField] private PlayerHealth playerHealthScr;
 
     [SerializeField] private float extraHpMultiplier;
     [SerializeField] private float overExtraHpMultiplier = 1.05f;
@@ -73,7 +74,7 @@ public class Capacitor : PassiveSkill //regen hp and increases max hp
 
     public override void ActivateSkill()
     {
-        systemHpScr.IncreaseMaxHp(extraHpMultiplier, false);
+        playerHealthScr.MultiplyMaxHealth(extraHpMultiplier);
     }
 
     public override void Upgrade()

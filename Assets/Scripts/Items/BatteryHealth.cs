@@ -9,7 +9,7 @@ public class BatteryHealth : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            Player.systemHpScr.RecountHp(hp);
+            Player.playerHealthScr.Heal(hp);
             NightPool.Despawn(gameObject);
         }
     }

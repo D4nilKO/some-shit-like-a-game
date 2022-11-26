@@ -5,8 +5,8 @@ public class Health : MonoBehaviour
 {
     [SerializeField, Min(0)] private float damageMultiplier = 1f;
 
-    public event Action<float> OnHealthChanged;
-    public event Action<float> OnDamageApplied;
+    public event Action<float> HealthChangedEvent;
+    public event Action<float> DamageApplied;
 
     public bool IgnoreDamage { get; set; }
     public bool IgnoreHeal { get; set; }
@@ -14,16 +14,23 @@ public class Health : MonoBehaviour
 
     public float CurrentHealth
     {
-        get => _currentHealth;
+        get => currentHealth;
         private set
         {
-            _currentHealth = Mathf.Clamp(value, 0f, _maxHealth);
-            OnHealthChanged?.Invoke(_currentHealth);
+            currentHealth = Mathf.Clamp(value, 0f, maxHealth);
+            var healthPercent = CurrentHealth / MaxHealth;
+            HealthChangedEvent?.Invoke(healthPercent);
         }
     }
 
-    private float _maxHealth = 100f;
-    private float _currentHealth;
+    public float MaxHealth
+    {
+        get => maxHealth;
+        private set => maxHealth = value;
+    }
+
+    private float currentHealth;
+    private float maxHealth = 100f;
 
     private void Awake()
     {
@@ -56,7 +63,7 @@ public class Health : MonoBehaviour
 
         CurrentHealth -= totalDamage;
 
-        OnDamageApplied?.Invoke(totalDamage);
+        DamageApplied?.Invoke(totalDamage);
     }
 
     public void SetMaxHealth(float maxHealth)
@@ -64,17 +71,31 @@ public class Health : MonoBehaviour
         if (maxHealth <= 0)
             throw new ArgumentOutOfRangeException(nameof(maxHealth));
 
-        _maxHealth = maxHealth;
+        this.MaxHealth = maxHealth;
 
-        if (CurrentHealth > _maxHealth)
+        if (CurrentHealth > this.MaxHealth)
         {
-            CurrentHealth = _maxHealth;
+            CurrentHealth = this.MaxHealth;
         }
+    }
+
+    public void AddMaxHealth(float value)
+    {
+        if (value <= 0)
+            throw new ArgumentOutOfRangeException(nameof(value));
+        SetMaxHealth(MaxHealth + value);
+    }
+
+    public void MultiplyMaxHealth(float multiplier)
+    {
+        if (multiplier <= 1)
+            throw new ArgumentOutOfRangeException(nameof(multiplier));
+        SetMaxHealth(MaxHealth * multiplier);
     }
 
     public void UpdateHealthToMax()
     {
-        CurrentHealth = _maxHealth;
+        CurrentHealth = MaxHealth;
     }
 
     protected virtual float ProcessDamage(float damage) => damage * damageMultiplier;

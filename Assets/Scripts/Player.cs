@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public static OrbitalStrike orbitalStrikeScr;
     public static Shield shieldScr;
     public static SystemXp systemXpScr;
-    public static SystemHp systemHpScr;
+    public static PlayerHealth playerHealthScr;
 
     #endregion
 
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         orbitalStrikeScr = GetComponent<OrbitalStrike>();
         shieldScr = GetComponent<Shield>();
         systemXpScr = GetComponent<SystemXp>();
-        systemHpScr = GetComponent<SystemHp>();
+        playerHealthScr = GetComponent<PlayerHealth>();
         rb = GetComponent<Rigidbody2D>();
 
         main = FindObjectOfType<Main>();

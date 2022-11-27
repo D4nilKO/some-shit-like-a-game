@@ -2830,8 +2830,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd086a30c464068428d8f58c0f18a719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hPFill: {fileID: 96252697}
-  systemHp: {fileID: 2058738136}
+  healthFill: {fileID: 96252697}
+  playerHealth: {fileID: 2058738136}
   gradient:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
@@ -7169,8 +7169,6 @@ MonoBehaviour:
   countOfAvoidEnemies: 0
   timeManagerScr: {fileID: 1435318912}
   typeOfTimeDecrease: 1
-  startTimeToDestroyPool: 0
-  timeToDestroyPool: 0
 --- !u!1 &1576781535
 GameObject:
   m_ObjectHideFlags: 0
@@ -9290,7 +9288,7 @@ GameObject:
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -9499,9 +9497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e57acef0732ed44912f12dbb23136d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageMultiplier: 1
   main: {fileID: 0}
-  curHp: 0
-  maxHp: 100
 --- !u!114 &2058738137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9515,7 +9512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLvl: 1
-  countOfLvlUpsAtOnce: 0
+  countOfLevelUpsAtOnce: 0
   startXpToLvlUp: 30
   scaleArithmetic: 10
   scaleGeometric: 1.08
@@ -9615,10 +9612,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8db9b52eb10468f8c2d70a470561004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overUpgradeIncrease: 1.05
   startEndurance: 0
   endurance: 0
-  overUpgradeIncrease: 1.05
-  isShieldEnable: 0
   mainPrefab: {fileID: 1923519643}
   attribute: {fileID: 11400000, guid: f3c3ccfcb79a9784eabdbd847bb17daf, type: 2}
   shieldSkillUpgradeList:
@@ -9635,7 +9631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533890e664874885b0a8ebfb4f688928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  systemHpScr: {fileID: 2058738136}
+  playerHealthScr: {fileID: 2058738136}
   extraHpMultiplier: 0
   overExtraHpMultiplier: 1.05
   attribute: {fileID: 11400000, guid: 12a82cd6027e1cb47b9b1e854d0c54cb, type: 2}

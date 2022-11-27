@@ -71,4 +71,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-/Assets/Graphics/PSD/
+/[Aa]ssets/[Gg]raphics/PSD/
+/[Ll]ibrary
+/[Ll]ogs
+/[Tt]emp
+/[Ll]ogs
+/obj
+/.plastic

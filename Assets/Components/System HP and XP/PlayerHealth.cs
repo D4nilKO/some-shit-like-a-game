@@ -76,9 +76,9 @@ public class PlayerHealth : Health
 
     public new void ApplyDamage(float damage)
     {
-        if (shieldScr.isShieldEnable)
+        if (shieldScr.IsShieldEnable)
         {
-            shieldScr.RecountEndurance(damage);
+            shieldScr.ApplyDamageToShield(damage);
             StopAllCoroutines();
             StartCoroutine(shieldScr.MainTimer());
         }
@@ -94,4 +94,7 @@ public class PlayerHealth : Health
     {
         main.Lose();
     }
+
+    protected override float ProcessDamage(float damage) => damage * Stats.DamageTakingMultiplier;
+
 }

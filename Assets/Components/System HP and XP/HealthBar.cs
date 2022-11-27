@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class HpBar : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
     [FormerlySerializedAs("HealthFill")] [SerializeField] private Image healthFill;
     [FormerlySerializedAs("systemHp")] [SerializeField] private PlayerHealth playerHealth;

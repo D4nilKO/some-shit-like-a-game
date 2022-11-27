@@ -8,7 +8,7 @@ public class OrbitalStrikeForGO : MonoBehaviour
         if (col.CompareTag("Enemy"))
         {
             var enemyScr = col.GetComponent<BaseEnemy>();
-            enemyScr.RecountHp(-Player.orbitalStrikeScr.damage);
+            enemyScr.RecountHp(Player.orbitalStrikeScr.damage);
         }
     }
 }

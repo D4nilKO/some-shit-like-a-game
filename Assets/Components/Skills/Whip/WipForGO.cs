@@ -8,7 +8,7 @@ public class WipForGO : MonoBehaviour
         if (col.CompareTag("Enemy"))
         {
             var enemyScr = col.GetComponent<BaseEnemy>();
-            enemyScr.RecountHp(-Player.whipScr.damage);
+            enemyScr.RecountHp(Player.whipScr.damage);
         }
     }
 }

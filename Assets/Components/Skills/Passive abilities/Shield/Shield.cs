@@ -4,22 +4,33 @@ using UnityEngine;
 
 public class Shield : PassiveSkill
 {
-    public float startEndurance;
-    public float endurance;
-    [SerializeField] private float overUpgradeIncrease = 1.05f;
-    public bool isShieldEnable;
-    public GameObject mainPrefab;
+    [SerializeField, Min(1)] private float overUpgradeIncrease = 1.05f;
+    [SerializeField] private float startEndurance;
+    [SerializeField] private float endurance;
+    public bool IgnoreDamage { get; set; }
+
+    public bool IsShieldEnable
+    {
+        get
+        {
+            IsShieldEnable = endurance <= 0;
+            return endurance <= 0;
+        }
+        private set => mainPrefab.SetActive(value);
+    }
+
+    [SerializeField] private GameObject mainPrefab;
 
     #region ATTRIBUTE
-    
+
     public AttributeSkill attribute;
 
     public override AttributeSkill Attribute
     {
-        get { return attribute; }
-        set { attribute = value; }
+        get => attribute;
+        set => attribute = value;
     }
-    
+
     #endregion
 
     #region JSON
@@ -63,32 +74,41 @@ public class Shield : PassiveSkill
         shieldSkillUpgradeList = JsonUtility.FromJson<SkillUpgradeList>(Attribute.jsonUpgradeData.text);
 
         startEndurance = shieldSkillUpgradeList.skillUpgrade[0].startEndurance;
-        endurance = startEndurance;
+        UpdateEnduranceToMax();
         Attribute.startTimeBtwSpawns = shieldSkillUpgradeList.skillUpgrade[0].timeBtwSpawns;
         Attribute.maxLvl = shieldSkillUpgradeList.skillUpgrade.Length;
 
-        isShieldEnable = false;
 
         base.InitializeSkill(withStart);
 
         if (withStart)
         {
             StopAllCoroutines();
-            isShieldEnable = true;
             mainPrefab.SetActive(true);
         }
     }
 
     #endregion
 
-    public void RecountEndurance(float deltaEndurance)
+    public void ApplyDamageToShield(float damage)
     {
-        endurance += deltaEndurance;
-        if (endurance <= 0)
-        {
-            isShieldEnable = false;
-            mainPrefab.SetActive(false);
-        }
+        if (IgnoreDamage)
+            return;
+
+        if (damage < 0)
+            throw new ArgumentOutOfRangeException(nameof(damage));
+
+        var totalDamage = ProcessDamage(damage);
+
+        if (totalDamage < 0)
+            throw new ArgumentOutOfRangeException(nameof(totalDamage));
+
+        endurance -= totalDamage;
+    }
+
+    public void UpdateEnduranceToMax()
+    {
+        endurance = startEndurance;
     }
 
     public IEnumerator MainTimer()
@@ -100,15 +120,14 @@ public class Shield : PassiveSkill
             yield return null;
         }
 
-        endurance = startEndurance;
-        
-        isShieldEnable = true;
-        mainPrefab.SetActive(true);
+        UpdateEnduranceToMax();
+
+        // mainPrefab.SetActive(true);
     }
 
     public override void Upgrade()
     {
-        bool isMaxEndurance = Math.Abs(startEndurance - endurance) < 1f;
+        var isMaxEndurance = Math.Abs(startEndurance - endurance) < 1f;
 
         if (Attribute.lvl <= Attribute.maxLvl)
         {
@@ -122,7 +141,9 @@ public class Shield : PassiveSkill
 
         if (isMaxEndurance)
         {
-            endurance = startEndurance;
+            UpdateEnduranceToMax();
         }
     }
+
+    protected virtual float ProcessDamage(float damage) => damage * Stats.DamageTakingMultiplier;
 }

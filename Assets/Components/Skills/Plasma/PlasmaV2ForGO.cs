@@ -8,7 +8,7 @@ public class PlasmaV2ForGO : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             var enemyScr = other.GetComponent<BaseEnemy>();
-            enemyScr.RecountHp(-Player.plasmaV2Scr.damage);
+            enemyScr.RecountHp(Player.plasmaV2Scr.damage);
         }
     }
 }

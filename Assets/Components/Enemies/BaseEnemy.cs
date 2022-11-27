@@ -18,7 +18,7 @@ namespace Enemies
         private const float StartTimeBtwDamage = 0.1f;
         private float timeBtwDamage;
 
-        public float damage;
+        [SerializeField] private float damage;
         [SerializeField] private bool isTeleportToPlayer = true;
         private MoveTrack moveTrackScr;
         private const float DistanceToTeleportFromPlayer = 20f;

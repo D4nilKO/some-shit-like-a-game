@@ -34,7 +34,7 @@ public class FlamethrowerForGO : MonoBehaviour
     private void Damaging(Collider2D other)
     {
         var enemyScr = other.GetComponent<BaseEnemy>();
-        enemyScr.RecountHp(-Player.flamethrowerScr.damage);
+        enemyScr.RecountHp(Player.flamethrowerScr.damage);
         isInTrigger = true;
     }
 

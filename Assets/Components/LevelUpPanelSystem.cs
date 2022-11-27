@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static NonRepeatingRandom;
 
-public class LvlUpPanelSystem : MonoBehaviour
+public class LevelUpPanelSystem : MonoBehaviour
 {
     public List<Skill> skills;
 

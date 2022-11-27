@@ -4,12 +4,14 @@ using UnityEngine;
 
 namespace Enemies
 {
+    [RequireComponent(typeof(EnemyHealth))]
     public abstract class BaseEnemy : MonoBehaviour, IPoolItem
     {
         [SerializeField] private float speed; //скорость врага
 
-        [SerializeField] private float maxHp;
-        public float curHp;
+        //[SerializeField] private float maxHp;
+        //public float curHp;
+        public Health healthScr;
 
         [SerializeField] private float xp;
 
@@ -25,7 +27,8 @@ namespace Enemies
 
         public virtual void Initialization()
         {
-            curHp = maxHp;
+            healthScr = GetComponent<EnemyHealth>();
+            healthScr.UpdateHealthToMax();
         }
 
         public virtual void Move()
@@ -49,18 +52,18 @@ namespace Enemies
             Move();
         }
 
-        public void RecountHp(float deltaHp)
-        {
-            curHp += deltaHp * Stats.SkillDamageMultiplier;
-            if (curHp <= 0)
-            {
-                Death(); //удаление крипа
-            }
-        }
+        // public void RecountHp(float deltaHp)
+        // {
+        //     //curHp += deltaHp * Stats.SkillDamageMultiplier;
+        //     if (curHp <= 0)
+        //     {
+        //         Death(); //удаление крипа
+        //     }
+        // }
 
         public virtual void Death()
         {
-            Player.systemXpScr.RecountXp(xp); // добавление опыта
+            Player.systemXpScr.AddExperience(xp); // добавление опыта
             NightPool.Despawn(gameObject);
             Stats.EnemyKilled++;
 

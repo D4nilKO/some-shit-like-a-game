@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 245303599976896256, guid: caec219bf59eaf640925d19287ab4740,
         type: 3}
       propertyPath: m_Name
-      value: Enemy 66
+      value: Enemy 6
       objectReference: {fileID: 0}
     - target: {fileID: 245303599976896260, guid: caec219bf59eaf640925d19287ab4740,
         type: 3}
@@ -92,6 +92,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7573513519218059841, guid: caec219bf59eaf640925d19287ab4740,
+        type: 3}
+      propertyPath: maxHealth
+      value: 600
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caec219bf59eaf640925d19287ab4740, type: 3}

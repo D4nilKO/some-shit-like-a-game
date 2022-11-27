@@ -65,12 +65,12 @@ public class SystemXp : MonoBehaviour
         CurXp = 0f;
     }
 
-    public void RecountXp(float deltaXp)
+    public void AddExperience(float experience)
     {
-        deltaXp *= Stats.XpGainMultiplier;
+        experience *= Stats.XpGainMultiplier;
         while (true)
         {
-            CurXp += deltaXp;
+            CurXp += experience;
 
             if (CurXp >= xpToLvlUp)
             {
@@ -89,7 +89,7 @@ public class SystemXp : MonoBehaviour
                         break;
                 }
 
-                deltaXp = 0;
+                experience = 0;
 
                 continue;
             }

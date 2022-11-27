@@ -10,7 +10,7 @@ public class Battery : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            Player.systemXpScr.RecountXp(xp);
+            Player.systemXpScr.AddExperience(xp);
             NightPool.Despawn(gameObject);
         }
     }

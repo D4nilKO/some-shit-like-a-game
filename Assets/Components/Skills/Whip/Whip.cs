@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
+using Components.Skills;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Whip : ActiveSkill
+public class Whip : DamagingSkill
 {
     [FormerlySerializedAs("whipPrefab")] public GameObject mainPrefab;
-    [NonSerialized] public float damage;
+    //[NonSerialized] public float damage;
 
     private float countOfStrikes;
     private float angle;

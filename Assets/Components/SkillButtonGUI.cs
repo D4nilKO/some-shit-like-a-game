@@ -1,15 +1,13 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class SkillsHUD : MonoBehaviour
+public class SkillButtonGUI : MonoBehaviour
 {
-    [FormerlySerializedAs("lvlUpSystemScr")] [FormerlySerializedAs("skillSystemScr")] [SerializeField]
-    private LvlUpPanelSystem lvlUpPanelSystemScr;
+    [FormerlySerializedAs("lvlUpPanelSystemScr")] [FormerlySerializedAs("lvlUpSystemScr")] [FormerlySerializedAs("skillSystemScr")] [SerializeField]
+    private LevelUpPanelSystem levelUpPanelSystemScr;
 
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI buyUpgradeText;
@@ -24,22 +22,21 @@ public class SkillsHUD : MonoBehaviour
     private void Awake()
     {
         index = transform.GetSiblingIndex();
-        lvlUpPanelSystemScr.LvlUpChooseEvent += ShowSkill; // подписались
+        levelUpPanelSystemScr.LvlUpChooseEvent += ShowSkill; // подписались
     }
 
     private void OnDestroy()
     {
-        lvlUpPanelSystemScr.LvlUpChooseEvent -= ShowSkill; // отписались
+        levelUpPanelSystemScr.LvlUpChooseEvent -= ShowSkill; // отписались
     }
     
     private void ShowSkill()
     {
-        lvlUpPanelSystemScr.SetAbilityPanel(true);
+        levelUpPanelSystemScr.SetAbilityPanel(true);
 
-        skill = lvlUpPanelSystemScr.skills[index];
+        skill = levelUpPanelSystemScr.skills[index];
         
         nameText.text = skill.Attribute.name;
-        //print(skill + " lvl = " + skill.Attribute.lvl);
         if (skill.Attribute.lvl == 0)
         {
             lvlText.text = string.Empty;
@@ -48,7 +45,6 @@ public class SkillsHUD : MonoBehaviour
         else
         {
             lvlText.text = " LVL " + skill.Attribute.lvl.ToString(CultureInfo.CurrentCulture);
-            //nameText.text +=" LVL " + skill.Attribute.lvl;
             buyUpgradeText.text = $"<color=#3957FF>Upgrade</color>"; // синий 
         }
 
@@ -65,6 +61,6 @@ public class SkillsHUD : MonoBehaviour
 
     public void Choice()
     {
-        lvlUpPanelSystemScr.Choice(skill);
+        levelUpPanelSystemScr.Choice(skill);
     }
 }

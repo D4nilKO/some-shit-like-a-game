@@ -1,5 +1,4 @@
-﻿using System;
-using Enemies;
+﻿using Enemies;
 using UnityEngine;
 
 namespace Components.Skills
@@ -9,7 +8,7 @@ namespace Components.Skills
         [SerializeField] private DamagingSkill skill;
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (TryGetComponent(out BaseEnemy enemy))
+            if (col.TryGetComponent(out BaseEnemy enemy))
             {
                 enemy.healthScr.ApplyDamage(skill.damage);
             }

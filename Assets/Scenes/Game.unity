@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3def988259c545839a8a8f80d949ad4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlUpPanelSystemScr: {fileID: 1435318914}
+  levelUpPanelSystemScr: {fileID: 1435318914}
   nameText: {fileID: 69054945}
   buyUpgradeText: {fileID: 1513258376}
   lvlText: {fileID: 2078059277}
@@ -4071,7 +4071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3def988259c545839a8a8f80d949ad4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlUpPanelSystemScr: {fileID: 1435318914}
+  levelUpPanelSystemScr: {fileID: 1435318914}
   nameText: {fileID: 1454460378}
   buyUpgradeText: {fileID: 2066367542}
   lvlText: {fileID: 112174343}
@@ -8821,7 +8821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3def988259c545839a8a8f80d949ad4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlUpPanelSystemScr: {fileID: 1435318914}
+  levelUpPanelSystemScr: {fileID: 1435318914}
   nameText: {fileID: 1265051277}
   buyUpgradeText: {fileID: 1946359652}
   lvlText: {fileID: 1051261127}
@@ -9498,6 +9498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 1
+  maxHealth: 100
   main: {fileID: 0}
 --- !u!114 &2058738137
 MonoBehaviour:

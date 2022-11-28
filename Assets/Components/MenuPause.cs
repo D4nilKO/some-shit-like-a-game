@@ -69,7 +69,12 @@ public class MenuPause : MonoBehaviour
         StartCoroutine(timeManagerScr.WaitBeforeContinueTime());
     }
 
-    public void QuiteTheGame()
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void BackToMainMenu()
     {
         SceneManager.LoadScene("Main Menu");
     }

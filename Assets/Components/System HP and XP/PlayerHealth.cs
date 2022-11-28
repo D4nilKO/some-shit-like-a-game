@@ -4,7 +4,7 @@ using UnityEditor.AssetImporters;
 
 public class PlayerHealth : Health
 {
-    [HideInInspector] public Main main;
+    [HideInInspector] public MenuPause menuPause;
     //public float curHp;
 
     //public event Action<float> HealthChanged;
@@ -16,7 +16,7 @@ public class PlayerHealth : Health
     private void Start()
     {
         shieldScr = Player.shieldScr;
-        main = FindObjectOfType<Main>().GetComponent<Main>();
+        menuPause = FindObjectOfType<MenuPause>().GetComponent<MenuPause>();
     }
 
     // public void IncreaseMaxHp(float deltaHp, bool isAddition)
@@ -92,7 +92,7 @@ public class PlayerHealth : Health
 
     private void Lose()
     {
-        main.Lose();
+        menuPause.RestartScene();
     }
 
     protected override float ProcessDamage(float damage) => damage * Stats.DamageTakingMultiplier;

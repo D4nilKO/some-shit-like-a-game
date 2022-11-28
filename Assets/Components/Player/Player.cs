@@ -27,8 +27,7 @@ public class Player : MonoBehaviour
     #endregion
 
     #region MOVEMENT
-
-    [HideInInspector] public Main main;
+    
     [HideInInspector] public float speed;
     [SerializeField] public float startSpeed;
     [HideInInspector] public Vector2 moveVelocity;
@@ -65,8 +64,6 @@ public class Player : MonoBehaviour
         systemXpScr = GetComponent<SystemXp>();
         playerHealthScr = GetComponent<PlayerHealth>();
         rb = GetComponent<Rigidbody2D>();
-
-        main = FindObjectOfType<Main>();
 
         playerGameObject = gameObject;
         playerTransform = transform;

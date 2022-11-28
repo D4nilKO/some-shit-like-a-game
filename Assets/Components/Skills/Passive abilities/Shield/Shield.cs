@@ -106,7 +106,7 @@ public class Shield : PassiveSkill
         endurance -= totalDamage;
     }
 
-    public void UpdateEnduranceToMax()
+    private void UpdateEnduranceToMax()
     {
         endurance = startEndurance;
         if (IsShieldEnable) return;

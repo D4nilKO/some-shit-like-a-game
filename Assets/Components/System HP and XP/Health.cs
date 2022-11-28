@@ -29,9 +29,9 @@ public class Health : MonoBehaviour
         private set => maxHealth = value;
     }
     
-    //убрать потом сериализацию
-    [SerializeField] private float currentHealth;
-    [SerializeField] private float maxHealth = 100f;
+    
+    private float currentHealth;
+    private float maxHealth = 100f;
 
     private void Awake()
     {

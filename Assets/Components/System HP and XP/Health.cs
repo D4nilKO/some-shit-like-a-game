@@ -28,8 +28,9 @@ public class Health : MonoBehaviour
         get => maxHealth;
         private set => maxHealth = value;
     }
-
-    private float currentHealth;
+    
+    //убрать потом сериализацию
+    [SerializeField] private float currentHealth;
     [SerializeField] private float maxHealth = 100f;
 
     private void Awake()
@@ -48,7 +49,7 @@ public class Health : MonoBehaviour
         CurrentHealth += value;
     }
 
-    public void ApplyDamage(float damage)
+    public virtual void ApplyDamage(float damage)
     {
         if (IgnoreDamage)
             return;

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Components.Enemies;
 using NTC.Global.Pool;
 using UnityEngine;
 
@@ -27,8 +28,14 @@ namespace Enemies
 
         public virtual void Initialization()
         {
-            healthScr = GetComponent<EnemyHealth>();
-            healthScr.UpdateHealthToMax();
+            if (TryGetComponent (out EnemyHealth healthScr))
+            {
+                this.healthScr = healthScr;
+                healthScr.UpdateHealthToMax(); 
+            }
+            
+            //healthScr = GetComponent<EnemyHealth>();
+            //healthScr.UpdateHealthToMax();
         }
 
         public virtual void Move()

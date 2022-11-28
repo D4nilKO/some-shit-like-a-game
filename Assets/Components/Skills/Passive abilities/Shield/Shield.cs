@@ -13,8 +13,8 @@ public class Shield : PassiveSkill
     {
         get
         {
-            IsShieldEnable = endurance <= 0;
-            return endurance <= 0;
+            IsShieldEnable = endurance > 0;
+            return endurance > 0;
         }
         private set => mainPrefab.SetActive(value);
     }
@@ -109,6 +109,7 @@ public class Shield : PassiveSkill
     public void UpdateEnduranceToMax()
     {
         endurance = startEndurance;
+        if (IsShieldEnable) return;
     }
 
     public IEnumerator MainTimer()
@@ -121,8 +122,6 @@ public class Shield : PassiveSkill
         }
 
         UpdateEnduranceToMax();
-
-        // mainPrefab.SetActive(true);
     }
 
     public override void Upgrade()

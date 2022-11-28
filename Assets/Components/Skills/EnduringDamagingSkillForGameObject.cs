@@ -10,7 +10,16 @@ namespace Components.Skills
         public bool isInTrigger;
         public float startTimeBtwDamage;
         public float timeBtwDamage;
-        
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.TryGetComponent(out BaseEnemy enemy))
+            {
+                isInTrigger = true;
+                Damaging(enemy);
+            }
+        }
+
         private void OnTriggerStay2D(Collider2D other)
         {
             if (other.TryGetComponent(out BaseEnemy enemy) && isInTrigger)
@@ -19,18 +28,12 @@ namespace Components.Skills
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.TryGetComponent(out BaseEnemy enemy)) return;
-            isInTrigger = true;
-            Damaging(enemy);
-        }
-
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.CompareTag("Enemy"))
+            if (other.TryGetComponent(out BaseEnemy enemy))
             {
                 isInTrigger = false;
+                StopCoroutine(DamageObject(enemy));
             }
         }
 

@@ -2579,6 +2579,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 26965221}
     m_Modifications:
+    - target: {fileID: 396894129, guid: 8d6aff4a5a1ef684fa1cad3a4cfcceb4, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 2058738132}
     - target: {fileID: 3098333178533035249, guid: 8d6aff4a5a1ef684fa1cad3a4cfcceb4,
         type: 3}
       propertyPath: m_RootOrder
@@ -3653,6 +3657,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 778018001, guid: 59472e60bd500b74491ace3fcb0a80f5, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 2058738134}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59472e60bd500b74491ace3fcb0a80f5, type: 3}
 --- !u!1 &682420031
@@ -7659,6 +7667,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8712810689841977634, guid: 4dce8e6f31de34c478812a94f8934ba7,
+        type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 2058738135}
     - target: {fileID: 8844008240305574265, guid: 4dce8e6f31de34c478812a94f8934ba7,
         type: 3}
       propertyPath: m_RootOrder
@@ -7788,6 +7801,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4385568868317005139, guid: b069c97fc017d2646a648a2d71fbf23f,
+        type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 2058738130}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b069c97fc017d2646a648a2d71fbf23f, type: 3}
 --- !u!1 &1690574462 stripped
@@ -9274,9 +9292,9 @@ GameObject:
   - component: {fileID: 2058738125}
   - component: {fileID: 2058738133}
   - component: {fileID: 2058738123}
+  - component: {fileID: 2058738132}
   - component: {fileID: 2058738135}
   - component: {fileID: 2058738130}
-  - component: {fileID: 2058738132}
   - component: {fileID: 2058738134}
   - component: {fileID: 2058738141}
   - component: {fileID: 2058738140}
@@ -9412,6 +9430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a8456ab833062c408a67bd8cc1acf47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   mainPrefab: {fileID: 1690574462}
   startDurationTime: 0.2
   attribute: {fileID: 11400000, guid: 00ee1b6c2c7951e4998cf6d015a95667, type: 2}
@@ -9429,6 +9448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e17150a39e29044b4a7acb042e34ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   status: 0
   mainPrefab: {fileID: 396894128}
   attribute: {fileID: 11400000, guid: 3e9f3661375f1f54b8d5741220dfc001, type: 2}
@@ -9461,10 +9481,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4cb1e10ea9ed5498056cdbd31994d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   mainPrefab: {fileID: 778017998}
   countOfStrikes: 0
   attackRadius: 10
-  damage: 0
   attribute: {fileID: 11400000, guid: 3a07f398b1a574d4ba53df433bc6f679, type: 2}
   orbitalStrikeSkillUpgradeList:
     skillUpgrade: []
@@ -9480,8 +9500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38a2b82bc15348e41bb625fac7d5edaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPrefab: {fileID: 24145037}
   damage: 0
+  mainPrefab: {fileID: 24145037}
   attribute: {fileID: 11400000, guid: d179c048196b98745a01c5f3cae4e65b, type: 2}
   plasmaSkillUpgradeList:
     skillUpgrade: []
@@ -9498,6 +9518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 1
+  currentHealth: 0
   maxHealth: 100
   main: {fileID: 0}
 --- !u!114 &2058738137
@@ -9608,7 +9629,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058738120}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8db9b52eb10468f8c2d70a470561004, type: 3}
   m_Name: 
@@ -10370,6 +10391,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 479697005817335253, guid: 0c4c8122aa27f324791f2cde685c7ad5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c4c8122aa27f324791f2cde685c7ad5, type: 3}

@@ -2,8 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using System;
+using Components.Skills;
 
-public class Flamethrower : ActiveSkill
+public class Flamethrower : DamagingSkill
 {
     public bool status;
 
@@ -12,7 +13,7 @@ public class Flamethrower : ActiveSkill
     private Vector2 vectorTrack;
 
     //public float startDamage = 5f;
-    [NonSerialized] public float damage;
+    //[NonSerialized] public float damage;
 
     //public float multiplierDamage = 1f;
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3098333178533035249}
   - component: {fileID: 6142764392800924979}
   - component: {fileID: 3644458043894343391}
-  - component: {fileID: 5748823484249035945}
+  - component: {fileID: 396894129}
   m_Layer: 0
   m_Name: Flamethorower
   m_TagString: flamethrower
@@ -116,7 +116,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5748823484249035945
+--- !u!114 &396894129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,9 +125,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6023003525107782707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 771205d0b5907c5488e9471433795fd0, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c865cd1ea0d45a3bf5345687f4d55ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skill: {fileID: 0}
   isInTrigger: 0
   startTimeBtwDamage: 0.2
   timeBtwDamage: 0

@@ -9,7 +9,6 @@ public class StatsPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI enemyKilledText;
     [SerializeField] private TextMeshProUGUI curHpText;
-    [SerializeField] private TextMeshProUGUI curHpText1;
     [SerializeField] private TextMeshProUGUI maxHpText;
     [SerializeField] private TextMeshProUGUI skillDamageMultiplierText;
     [SerializeField] private TextMeshProUGUI damageTakingMultiplierText;
@@ -19,10 +18,10 @@ public class StatsPanel : MonoBehaviour
     [SerializeField] private TimeManager timeManagerScr;
     private SurviveTimer timer;
 
-    private void Start()
+    private void Awake()
     {
         timer = timeManagerScr.gameTime;
-        curHpText = null;
+        gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -32,32 +31,28 @@ public class StatsPanel : MonoBehaviour
 
     private void ShowStats()
     {
-        NullCheckAndSetText(curHpText1, " ");
-        print(curHpText1);
-        
-        NullCheckAndSetText(curHpText, " ");
-        print(curHpText);
-        
-        NullCheckAndSetText(enemyKilledText, Stats.EnemyKilled.ToString(CultureInfo.CurrentCulture));
-        //NullCheckAndSetText(curHpText, Player.playerHealthScr.CurrentHealth.ToString(CultureInfo.CurrentCulture));
-        //NullCheckAndSetText(maxHpText, Player.playerHealthScr.MaxHealth.ToString(CultureInfo.CurrentCulture));
-        NullCheckAndSetText(skillDamageMultiplierText,
+        TextNullCheck(enemyKilledText, Stats.EnemyKilled.ToString(CultureInfo.CurrentCulture));
+        TextNullCheck(curHpText, Player.playerHealthScr.CurrentHealth.ToString(CultureInfo.CurrentCulture));
+        TextNullCheck(maxHpText, Player.playerHealthScr.MaxHealth.ToString(CultureInfo.CurrentCulture));
+        TextNullCheck(skillDamageMultiplierText,
             (Stats.SkillDamageMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
-        NullCheckAndSetText(damageTakingMultiplierText,
+        TextNullCheck(damageTakingMultiplierText,
             (Stats.DamageTakingMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
-        NullCheckAndSetText(xpGainMultiplierText,
+        TextNullCheck(xpGainMultiplierText,
             (Stats.XpGainMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
-        NullCheckAndSetText(timerText, timer.FormattedTime());
+        TextNullCheck(timerText, timer.FormattedTime());
         
     }
 
-    private void NullCheckAndSetText(TextMeshProUGUI textObject, string value)
+    private void TextNullCheck(TextMeshProUGUI textObject, string value)
     {
-        if (textObject == null)
+        try
         {
-            print("нуль");
-        }
-        else
             textObject.text = value;
+        }
+        catch (NullReferenceException ex)
+        {
+            Debug.Log("нуль text");
+        }
     }
 }

@@ -4296,7 +4296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &538045611
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12220,7 +12220,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 1
+  currentHealth: 0
+  maxHealth: 100
   menuPause: {fileID: 0}
+  deathPanel: {fileID: 538045610}
 --- !u!114 &2058738137
 MonoBehaviour:
   m_ObjectHideFlags: 0

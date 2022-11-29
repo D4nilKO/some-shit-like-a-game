@@ -30,8 +30,8 @@ public class Health : MonoBehaviour
     }
     
     
-    private float currentHealth;
-    private float maxHealth = 100f;
+    [SerializeField] private float currentHealth;
+    [SerializeField] private float maxHealth = 100f;
 
     private void Awake()
     {

@@ -18,7 +18,6 @@ public class MenuPause : MonoBehaviour
     {
         pausePanel.SetActive(false);
         pauseBtn.SetActive(true);
-        //timePause = startTimePause;
         joystickPlayer.SetActive(true);
     }
 

@@ -13,8 +13,13 @@ public class Shield : PassiveSkill
     {
         get
         {
-            IsShieldEnable = endurance > 0;
-            return endurance > 0;
+            if (!enabled)
+                return false;
+            else
+            {
+                IsShieldEnable = endurance > 0;
+                return endurance > 0;
+            }
         }
         private set => mainPrefab.SetActive(value);
     }

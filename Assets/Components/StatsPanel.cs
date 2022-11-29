@@ -1,9 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 public class StatsPanel : MonoBehaviour
 {
@@ -13,16 +11,6 @@ public class StatsPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI skillDamageMultiplierText;
     [SerializeField] private TextMeshProUGUI damageTakingMultiplierText;
     [SerializeField] private TextMeshProUGUI xpGainMultiplierText;
-    
-    [SerializeField] private TextMeshProUGUI timerText;
-    [SerializeField] private TimeManager timeManagerScr;
-    private SurviveTimer timer;
-
-    private void Awake()
-    {
-        timer = timeManagerScr.gameTime;
-        gameObject.SetActive(false);
-    }
 
     private void OnEnable()
     {
@@ -40,8 +28,6 @@ public class StatsPanel : MonoBehaviour
             (Stats.DamageTakingMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
         TextNullCheck(xpGainMultiplierText,
             (Stats.XpGainMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
-        TextNullCheck(timerText, timer.FormattedTime());
-        
     }
 
     private void TextNullCheck(TextMeshProUGUI textObject, string value)

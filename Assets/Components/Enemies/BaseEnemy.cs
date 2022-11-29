@@ -23,6 +23,7 @@ namespace Enemies
 
         [SerializeField] private float damage;
         [SerializeField] private bool isTeleportToPlayer = true;
+        
         private MoveTrack moveTrackScr;
         private const float DistanceToTeleportFromPlayer = 20f;
 
@@ -33,9 +34,6 @@ namespace Enemies
                 this.healthScr = healthScr;
                 healthScr.UpdateHealthToMax(); 
             }
-            
-            //healthScr = GetComponent<EnemyHealth>();
-            //healthScr.UpdateHealthToMax();
         }
 
         public virtual void Move()
@@ -59,18 +57,9 @@ namespace Enemies
             Move();
         }
 
-        // public void RecountHp(float deltaHp)
-        // {
-        //     //curHp += deltaHp * Stats.SkillDamageMultiplier;
-        //     if (curHp <= 0)
-        //     {
-        //         Death(); //удаление крипа
-        //     }
-        // }
-
         public virtual void Death()
         {
-            Player.systemXpScr.AddExperience(xp); // добавление опыта
+            Player.systemXpScr.AddExperience(xp);
             NightPool.Despawn(gameObject);
             Stats.EnemyKilled++;
 

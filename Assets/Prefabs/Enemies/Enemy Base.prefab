@@ -122,8 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  maxHp: 10
-  curHp: 0
+  healthScr: {fileID: 7573513519218059841}
   xp: 2
   damage: 1
   isTeleportToPlayer: 1
@@ -156,4 +155,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 1
-  maxHealth: 100

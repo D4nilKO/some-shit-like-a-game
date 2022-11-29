@@ -4289,7 +4289,7 @@ GameObject:
   - component: {fileID: 538045611}
   - component: {fileID: 538045614}
   - component: {fileID: 538045613}
-  - component: {fileID: 538045612}
+  - component: {fileID: 538045615}
   m_Layer: 5
   m_Name: Death Panel
   m_TagString: Untagged
@@ -4327,26 +4327,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.00012207031}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &538045612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538045610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5781453870b64523837aaebbcaef76a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyKilledText: {fileID: 1051898557}
-  curHpText: {fileID: 0}
-  maxHpText: {fileID: 20847434}
-  skillDamageMultiplierText: {fileID: 488080669}
-  damageTakingMultiplierText: {fileID: 1522140359}
-  xpGainMultiplierText: {fileID: 88264906}
-  timerText: {fileID: 1503870395}
-  timeManagerScr: {fileID: 1435318912}
 --- !u!114 &538045613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4385,6 +4365,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538045610}
   m_CullTransparentMesh: 1
+--- !u!114 &538045615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538045610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20f212c1b4634bcf8b6462c1801ec3c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyKilledText: {fileID: 1051898557}
+  maxHpText: {fileID: 20847434}
+  skillDamageMultiplierText: {fileID: 488080669}
+  damageTakingMultiplierText: {fileID: 1522140359}
+  xpGainMultiplierText: {fileID: 88264906}
+  timerText: {fileID: 1503870395}
+  timeManagerScr: {fileID: 1435318912}
 --- !u!1 &539000074
 GameObject:
   m_ObjectHideFlags: 0
@@ -5793,9 +5792,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: Main, Assembly-CSharp
-          m_MethodName: Lose
+        - m_Target: {fileID: 519420034}
+          m_TargetAssemblyTypeName: MenuPause, Assembly-CSharp
+          m_MethodName: RestartScene
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8825,8 +8824,6 @@ MonoBehaviour:
   skillDamageMultiplierText: {fileID: 1908040190}
   damageTakingMultiplierText: {fileID: 314867926}
   xpGainMultiplierText: {fileID: 2029310964}
-  timerText: {fileID: 0}
-  timeManagerScr: {fileID: 0}
 --- !u!114 &1470517667
 MonoBehaviour:
   m_ObjectHideFlags: 0

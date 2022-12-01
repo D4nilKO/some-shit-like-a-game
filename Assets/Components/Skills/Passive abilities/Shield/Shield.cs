@@ -7,7 +7,9 @@ public class Shield : PassiveSkill
     [SerializeField, Min(1)] private float overUpgradeIncrease = 1.05f;
     [SerializeField] private float startEndurance;
     [SerializeField] private float endurance;
+    [SerializeField] private GameObject mainPrefab;
     public bool IgnoreDamage { get; set; }
+
 
     public bool IsShieldEnable
     {
@@ -23,8 +25,6 @@ public class Shield : PassiveSkill
         }
         private set => mainPrefab.SetActive(value);
     }
-
-    [SerializeField] private GameObject mainPrefab;
 
     #region ATTRIBUTE
 
@@ -111,7 +111,7 @@ public class Shield : PassiveSkill
         endurance -= totalDamage;
     }
 
-    private void UpdateEnduranceToMax()
+    public void UpdateEnduranceToMax()
     {
         endurance = startEndurance;
         if (IsShieldEnable) return;

@@ -58,7 +58,7 @@ public class Memory : PassiveSkill
 
         if (withStart)
         {
-            Stats.XpGainMultiplier += memorySkillUpgradeList.skillUpgrade[0].xpMultiplier;
+            Stats.ExperienceGainMultiplier += memorySkillUpgradeList.skillUpgrade[0].xpMultiplier;
         }
     }
 
@@ -68,7 +68,7 @@ public class Memory : PassiveSkill
     {
         if (Attribute.lvl <= Attribute.maxLvl)
         {
-            Stats.XpGainMultiplier += memorySkillUpgradeList.skillUpgrade[Attribute.lvl - 1].xpMultiplier;
+            Stats.ExperienceGainMultiplier += memorySkillUpgradeList.skillUpgrade[Attribute.lvl - 1].xpMultiplier;
         }
     }
     

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Components.Enemies;
 using Enemies;
 using UnityEngine;
 

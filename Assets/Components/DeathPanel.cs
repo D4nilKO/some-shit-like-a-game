@@ -15,6 +15,8 @@ namespace Components
 
         [SerializeField] private TextMeshProUGUI timerText;
         [SerializeField] private TimeManager timeManagerScr;
+
+        [SerializeField] private GameObject reviveButton; 
         private SurviveTimer timer;
         
         private void OnEnable()
@@ -32,10 +34,13 @@ namespace Components
             TextNullCheck(damageTakingMultiplierText,
                 (Stats.DamageTakingMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
             TextNullCheck(xpGainMultiplierText,
-                (Stats.XpGainMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
+                (Stats.ExperienceGainMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
 
             timer = timeManagerScr.gameTime;
             TextNullCheck(timerText, timer.FormattedTime());
+
+            //тут место для кнопки просмотра рекламы чтобы выжить
+            reviveButton.SetActive(Stats.CountOfRevivals > 0);
         }
 
         private void TextNullCheck(TextMeshProUGUI textObject, string value)

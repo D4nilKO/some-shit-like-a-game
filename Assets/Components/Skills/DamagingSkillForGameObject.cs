@@ -1,4 +1,5 @@
-﻿using Enemies;
+﻿using Components.Enemies;
+using Enemies;
 using UnityEngine;
 
 namespace Components.Skills

@@ -67,7 +67,7 @@ public class SystemXp : MonoBehaviour
 
     public void AddExperience(float experience)
     {
-        experience *= Stats.XpGainMultiplier;
+        experience *= Stats.ExperienceGainMultiplier;
         while (true)
         {
             CurXp += experience;

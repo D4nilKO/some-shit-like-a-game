@@ -27,7 +27,7 @@ public class StatsPanel : MonoBehaviour
         TextNullCheck(damageTakingMultiplierText,
             (Stats.DamageTakingMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
         TextNullCheck(xpGainMultiplierText,
-            (Stats.XpGainMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
+            (Stats.ExperienceGainMultiplier * 100f).ToString(CultureInfo.CurrentCulture) + "%");
     }
 
     private void TextNullCheck(TextMeshProUGUI textObject, string value)

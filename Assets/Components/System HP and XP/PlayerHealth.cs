@@ -5,18 +5,18 @@ using UnityEditor.AssetImporters;
 public class PlayerHealth : Health
 {
     [HideInInspector] public MenuPause menuPause;
-    
-    //public event Action<float> HealthChanged;
-
-    private Shield shieldScr;
     [SerializeField] private GameObject deathPanel;
+    private Shield shieldScr;
+    [SerializeField] private TimeManager timeManagerScr;
+
+    //public event Action<float> HealthChanged;
 
     private void Start()
     {
         shieldScr = Player.shieldScr;
         menuPause = FindObjectOfType<MenuPause>().GetComponent<MenuPause>();
     }
-    
+
     public new void ApplyDamage(float damage)
     {
         if (shieldScr.IsShieldEnable)
@@ -38,6 +38,15 @@ public class PlayerHealth : Health
         deathPanel.SetActive(true);
     }
 
-    protected override float ProcessDamage(float damage) => damage * Stats.DamageTakingMultiplier;
+    public void Revive()
+    {
+        Stats.CountOfRevivals--;
+        deathPanel.SetActive(false);
+        UpdateHealthToMax();
+        StopAllCoroutines();
+        shieldScr.UpdateEnduranceToMax();
+        StartCoroutine(timeManagerScr.WaitBeforeContinueTime());
+    }
 
+    protected override float ProcessDamage(float damage) => damage * Stats.DamageTakingMultiplier;
 }

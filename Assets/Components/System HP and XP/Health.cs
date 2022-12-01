@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
     [SerializeField, Min(0)] private float damageMultiplier = 1f;
 
     public event Action<float> HealthChangedEvent;
-    public event Action<float> DamageApplied;
+    public event Action DamageApplied;
 
     public bool IgnoreDamage { get; set; }
     public bool IgnoreHeal { get; set; }
@@ -64,7 +64,7 @@ public class Health : MonoBehaviour
 
         CurrentHealth -= totalDamage;
 
-        DamageApplied?.Invoke(totalDamage);
+        DamageApplied?.Invoke();
     }
 
     public void SetMaxHealth(float maxHealth)

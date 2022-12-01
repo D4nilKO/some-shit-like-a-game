@@ -1,8 +1,20 @@
 ﻿using System;
-using UnityEngine;
 
 public static class Stats
 {
+    //for load\reload scene
+    //often using in class Stats Initialization
+    public static void Initialization() 
+    {
+        EnemyKilled = 0;
+        CountOfRevivals = StartCountOfRevivals;
+        SkillDamageMultiplier = StartSkillDamageMultiplier;
+        DamageTakingMultiplier = StartDamageTakingMultiplier;
+        ExperienceGainMultiplier = StartExperienceGainMultiplier;
+    }
+    
+    #region EnemyKilled
+    
     private static int _enemyKilled;
 
     public static int EnemyKilled
@@ -14,7 +26,39 @@ public static class Stats
             _enemyKilled = value;
         }
     }
+    
+    #endregion
 
+    #region Count Of Revivals
+
+    private static float _startCountOfRevivals = 1f;
+
+    public static float StartCountOfRevivals
+    {
+        get => _startCountOfRevivals;
+        set
+        {
+            if (value < 0) throw new ArgumentOutOfRangeException(nameof(value));
+            _startCountOfRevivals = value;
+        }
+    }
+
+    private static float _countOfRevivals = StartCountOfRevivals;
+
+    public static float CountOfRevivals
+    {
+        get => _countOfRevivals;
+        set
+        {
+            if (value < 0) throw new ArgumentOutOfRangeException(nameof(value));
+            _countOfRevivals = value;
+        }
+    }
+    
+    #endregion
+    
+    #region Skill Damage Multiplier
+    
     private static float _startSkillDamageMultiplier = 1f;
 
     public static float StartSkillDamageMultiplier
@@ -39,6 +83,10 @@ public static class Stats
         }
     }
 
+    #endregion
+
+    #region Damage Taking Multiplier
+
     private static float _startDamageTakingMultiplier = 1f;
 
     public static float StartDamageTakingMultiplier
@@ -62,28 +110,34 @@ public static class Stats
             _damageTakingMultiplier = value;
         }
     }
+    
+    #endregion
+    
+    #region Experience Gain Multiplier
 
-    private static float _startXpGainMultiplier = 1f;
+    private static float _startExperienceGainMultiplier = 1f;
 
-    public static float StartXpGainMultiplier
+    public static float StartExperienceGainMultiplier
     {
-        get => _startXpGainMultiplier;
+        get => _startExperienceGainMultiplier;
         set
         {
             if (value < 0) throw new ArgumentOutOfRangeException(nameof(value));
-            _startXpGainMultiplier = value;
+            _startExperienceGainMultiplier = value;
         }
     }
 
-    private static float _xpGainMultiplier = StartXpGainMultiplier;
+    private static float _experienceGainMultiplier = StartExperienceGainMultiplier;
 
-    public static float XpGainMultiplier
+    public static float ExperienceGainMultiplier
     {
-        get => _xpGainMultiplier;
+        get => _experienceGainMultiplier;
         set
         {
             if (value < 0) throw new ArgumentOutOfRangeException(nameof(value));
-            _xpGainMultiplier = value;
+            _experienceGainMultiplier = value;
         }
     }
+    
+    #endregion
 }

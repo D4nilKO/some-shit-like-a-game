@@ -1,6 +1,7 @@
 ﻿using System;
 using NTC.Global.Pool;
 using UnityEngine;
+using UnityEngine.Serialization;
 using static NTC.Global.Pool.NightPool;
 
 namespace Components.Enemies
@@ -11,19 +12,13 @@ namespace Components.Enemies
         public Health healthScr;
         //[SerializeField] private Animation damagingAnimation;
 
+        [FormerlySerializedAs("xp")] [SerializeField] private float experience;
         [SerializeField] private float speed; //скорость врага
-        [SerializeField] private float xp;
 
-        // private bool isInTrigger;
-        //
-        // private const float StartTimeBtwDamage = 0.1f;
-        // private float timeBtwDamage;
-        //[SerializeField] private float damage;
-        
         [SerializeField] private bool isTeleportToPlayer = true;
-        
-        private MoveTrack moveTrackScr;
+
         private const float DistanceToTeleportFromPlayer = 20f;
+        private MoveTrack moveTrackScr;
 
         private void Awake()
         {
@@ -73,7 +68,7 @@ namespace Components.Enemies
 
         public virtual void Death()
         {
-            Player.systemXpScr.AddExperience(xp);
+            Player.systemXpScr.AddExperience(experience);
             Despawn(gameObject);
             Stats.EnemyKilled++;
 

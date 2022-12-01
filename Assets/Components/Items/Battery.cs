@@ -1,6 +1,5 @@
 using NTC.Global.Pool;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class Battery : MonoBehaviour
 {
@@ -8,10 +7,9 @@ public class Battery : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
-        {
-            Player.systemXpScr.AddExperience(xp);
-            NightPool.Despawn(gameObject);
-        }
+        if (!col.TryGetComponent(out SystemXp systemXpScr)) return;
+        
+        systemXpScr.AddExperience(xp);
+        NightPool.Despawn(gameObject);
     }
 }

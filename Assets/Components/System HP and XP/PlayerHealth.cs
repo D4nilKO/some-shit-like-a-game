@@ -1,20 +1,16 @@
 using UnityEngine;
-using System;
-using UnityEditor.AssetImporters;
 
 public class PlayerHealth : Health
 {
-    [HideInInspector] public MenuPause menuPause;
     [SerializeField] private GameObject deathPanel;
-    private Shield shieldScr;
     [SerializeField] private TimeManager timeManagerScr;
+    private Shield shieldScr;
 
     //public event Action<float> HealthChanged;
 
     private void Start()
     {
         shieldScr = Player.shieldScr;
-        menuPause = FindObjectOfType<MenuPause>().GetComponent<MenuPause>();
     }
 
     public new void ApplyDamage(float damage)

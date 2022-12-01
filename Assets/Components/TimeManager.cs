@@ -2,19 +2,23 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class TimeManager : MonoBehaviour
 {
     [SerializeField] private float startTimeScale = 1;
     public static float timeScale;
 
+    [FormerlySerializedAs("startTimePause")] [SerializeField]
+    private float startTimePauseBeforeContinueTime = 0.5f; 
+
+    private float timePauseBeforeContinueTime;
+
     [HideInInspector] public int secondCounter;
     [HideInInspector] public int minuteCounter;
 
-    [SerializeField] private float startTimePause = 0.5f; //промежуток паузы
-    private float timePause;
-    public TextMeshProUGUI timer;
     [HideInInspector] public SurviveTimer gameTime = new SurviveTimer();
+    public TextMeshProUGUI timer;
 
 
     private void Start()
@@ -48,10 +52,10 @@ public class TimeManager : MonoBehaviour
 
     public IEnumerator WaitBeforeContinueTime()
     {
-        timePause = startTimePause;
-        while (timePause > 0) //если время больше 0, то уменьшаем его по чуть-чуть
+        timePauseBeforeContinueTime = startTimePauseBeforeContinueTime;
+        while (timePauseBeforeContinueTime > 0) //если время больше 0, то уменьшаем его по чуть-чуть
         {
-            timePause -= Time.unscaledDeltaTime; //само уменьшение таймера
+            timePauseBeforeContinueTime -= Time.unscaledDeltaTime; //само уменьшение таймера
             yield return null; //продолжить выполнение после этого кадра
         }
 

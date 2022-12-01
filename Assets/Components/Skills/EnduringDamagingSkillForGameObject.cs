@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using Components.Enemies;
-using Enemies;
 using UnityEngine;
 
 namespace Components.Skills
@@ -14,11 +13,10 @@ namespace Components.Skills
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.TryGetComponent(out BaseEnemy enemy))
-            {
-                isInTrigger = true;
-                Damaging(enemy);
-            }
+            if (!other.TryGetComponent(out BaseEnemy enemy)) return;
+
+            isInTrigger = true;
+            Damaging(enemy);
         }
 
         private void OnTriggerStay2D(Collider2D other)
@@ -31,16 +29,14 @@ namespace Components.Skills
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.TryGetComponent(out BaseEnemy enemy))
-            {
-                isInTrigger = false;
-                StopCoroutine(DamageObject(enemy));
-            }
+            if (!other.TryGetComponent(out BaseEnemy enemy)) return;
+
+            isInTrigger = false;
+            StopCoroutine(DamageObject(enemy));
         }
 
         private void Damaging(BaseEnemy enemy)
         {
-            //var enemyScr = other.GetComponent<BaseEnemy>();
             enemy.healthScr.ApplyDamage(skill.damage);
             isInTrigger = true;
         }
@@ -52,9 +48,7 @@ namespace Components.Skills
             while (timeBtwDamage > 0)
             {
                 if (!enemy.gameObject.activeInHierarchy)
-                {
                     yield break;
-                }
 
                 timeBtwDamage -= Time.deltaTime;
                 yield return null;

@@ -1,4 +1,5 @@
-﻿using NTC.Global.Pool;
+﻿using System.Collections;
+using NTC.Global.Pool;
 using UnityEngine;
 
 namespace Enemies
@@ -7,23 +8,26 @@ namespace Enemies
     {
         [SerializeField] private int countOfEnemySpawns;
         [SerializeField] private GameObject enemyToSpawn;
-        [SerializeField] private GameObject enemyContainer;
         private GameObject currentEnemy;
+        private Transform positionToSpawn;
 
         private FastRandom random = new FastRandom();
         
-        private void SpawnEnemyAfterDeath()
+        private IEnumerator SpawnEnemyAfterDeath()
         {
+            positionToSpawn = transform;
             for (int i = 0; i < countOfEnemySpawns; i++)
             {
                 var zAngleEnemy = random.Range(0, 350);
-                currentEnemy = NightPool.Spawn(enemyToSpawn, transform.position, Quaternion.Euler(0f, 0f, zAngleEnemy));
+                currentEnemy = NightPool.Spawn(enemyToSpawn, positionToSpawn.position, Quaternion.Euler(0f, 0f, zAngleEnemy));
+                //Нужно прописать еще чтобы некоторое время после спавна игнорировался урон, а то они раздуплиться не успевают(
+                yield return null;
             }
         }
 
         public override void Death()
         {
-            SpawnEnemyAfterDeath();
+            StartCoroutine(SpawnEnemyAfterDeath());
             base.Death();
         }
     }

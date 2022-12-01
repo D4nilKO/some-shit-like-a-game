@@ -151,7 +151,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        spawnPoint = gameObject.transform.position;
+        spawnPoint = transform.position;
         zAngleEnemy = random.Range(0, 350); // рандомный добавочный угол через быстрый рандом для поворота врага
         
         curEnemy = NightPool.Spawn(GetRandomEnemyType(), spawnPoint, Quaternion.Euler(0f, 0f, zAngleEnemy));

@@ -5,16 +5,16 @@ using UnityEngine.UI;
 public class XpBar : MonoBehaviour
 {
     [FormerlySerializedAs("xPFill")] [SerializeField] private Image xpFill;
-    [SerializeField] private SystemXp systemXp;
+    [FormerlySerializedAs("systemXp")] [SerializeField] private Experience experience;
     
     private void Awake()
     {
-        systemXp.XpChanged += OnXpChanged;
+        experience.XpChanged += OnXpChanged;
     }
 
     private void OnDestroy()
     {
-        systemXp.XpChanged -= OnXpChanged;
+        experience.XpChanged -= OnXpChanged;
     }
     private void OnXpChanged(float valueAsPercent)
     {

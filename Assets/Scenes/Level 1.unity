@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpFill: {fileID: 222374522}
-  systemXp: {fileID: 2058738137}
+  experience: {fileID: 2058738137}
 --- !u!1 &37951357
 GameObject:
   m_ObjectHideFlags: 0
@@ -8592,7 +8592,7 @@ MonoBehaviour:
   - {fileID: 2058738140}
   - {fileID: 2058738141}
   - {fileID: 2058738142}
-  systemXpScr: {fileID: 2058738137}
+  experienceScr: {fileID: 2058738137}
   abilityPanel: {fileID: 1452644903}
 --- !u!114 &1435318915
 MonoBehaviour:
@@ -9929,12 +9929,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
+  - {fileID: 2659143054497324501, guid: 01ee4e3996a4bdb42b603c4927e6a3a2, type: 3}
   - {fileID: 7377461902763621707, guid: e642f9fcc1808a34fb82513a776980c3, type: 3}
   - {fileID: 4247091595474881685, guid: 5e7edd214dd616b48b829907d1949f2f, type: 3}
   - {fileID: 5557580630111771336, guid: cd8f8e80370c39148bace8e9afcd3fab, type: 3}
   - {fileID: 5122981078461793196, guid: cd462b229caf24d499a017b55d159194, type: 3}
   - {fileID: 3563836311182202473, guid: 1d8be64e299a69044beb9fab0d0b6ca5, type: 3}
-  - {fileID: 2659143054497324501, guid: 01ee4e3996a4bdb42b603c4927e6a3a2, type: 3}
   - {fileID: 7862639893942883866, guid: 39cc57a626662db42b924757c742d4a8, type: 3}
   - {fileID: 6683540759722515461, guid: 37762ac8f6d1e0f42b4824dcd49a7fbb, type: 3}
   - {fileID: 3212866044130566839, guid: cf816d3bc6ae0e7489aee0e475fe2d89, type: 3}
@@ -12641,6 +12641,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 1
+  startTimeToIgnoreDamage: 1
+  timeToIgnoreDamage: 0
   currentHealth: 0
   maxHealth: 100
   deathPanel: {fileID: 538045610}
@@ -12657,13 +12659,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 666e4691087c09c4fbc3b3b107b52580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startLvl: 1
+  startLevel: 1
   countOfLevelUpsAtOnce: 0
   startXpToLvlUp: 30
   scaleArithmetic: 10
   scaleGeometric: 1.08
   typeOfXpProgress: 1
-  meshPro: {fileID: 1576781537}
+  levelText: {fileID: 1576781537}
 --- !u!60 &2058738138
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ namespace Components.Enemies
         private const float DistanceToTeleportFromPlayer = 20f;
         private MoveTrack moveTrackScr;
 
-        private void Awake()
+        public virtual void Awake()
         {
             healthScr.DamageApplied += OnDamageEvent;
         }
@@ -68,7 +68,7 @@ namespace Components.Enemies
 
         public virtual void Death()
         {
-            Player.systemXpScr.AddExperience(experience);
+            Player.experienceScr.AddExperience(experience);
             Despawn(gameObject);
             Stats.EnemyKilled++;
 

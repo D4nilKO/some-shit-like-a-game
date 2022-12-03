@@ -3,9 +3,24 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
 
-public class SystemXp : MonoBehaviour
+public class Experience : MonoBehaviour
 {
-    [SerializeField] public int startLvl = 1;
+    [SerializeField] public int startLevel = 1;
+
+    [HideInInspector] public int countOfLevelUpsAtOnce;
+
+    private float currentExperience;
+
+    private float CurrentExperience
+    {
+        get => currentExperience;
+        set
+        {
+            currentExperience = value;
+            var percentExperience = CurrentExperience / experienceToLvlUp;
+            XpChanged?.Invoke(percentExperience);
+        }
+    }
 
     private int currentLevel;
 
@@ -17,30 +32,14 @@ public class SystemXp : MonoBehaviour
             countOfLevelUpsAtOnce = value - currentLevel;
             LvlIncreaseEvent?.Invoke();
             currentLevel = value;
-            meshPro.text = "LVL " + CurrentLevel;
-        }
-    }
-
-    [FormerlySerializedAs("countOfLvlUpsAtOnce")] [HideInInspector]
-    public int countOfLevelUpsAtOnce;
-
-    private float curXp;
-
-    private float CurXp
-    {
-        get => curXp;
-        set
-        {
-            curXp = value;
-            var cuXpPercent = CurXp / xpToLvlUp;
-            XpChanged?.Invoke(cuXpPercent);
+            levelText.text = "LVL " + CurrentLevel;
         }
     }
 
     public event Action<float> XpChanged;
 
     [SerializeField] private float startXpToLvlUp = 10;
-    private float xpToLvlUp;
+    private float experienceToLvlUp;
 
     [Header("Settings")] [SerializeField] private int scaleArithmetic = 10;
 
@@ -56,13 +55,13 @@ public class SystemXp : MonoBehaviour
     };
 
     public event Action LvlIncreaseEvent;
-    [SerializeField] private TextMeshProUGUI meshPro;
+    [FormerlySerializedAs("meshPro")] [SerializeField] private TextMeshProUGUI levelText;
 
     private void Start()
     {
-        currentLevel = startLvl;
-        xpToLvlUp = startXpToLvlUp;
-        CurXp = 0f;
+        currentLevel = startLevel;
+        experienceToLvlUp = startXpToLvlUp;
+        CurrentExperience = 0f;
     }
 
     public void AddExperience(float experience)
@@ -70,20 +69,20 @@ public class SystemXp : MonoBehaviour
         experience *= Stats.ExperienceGainMultiplier;
         while (true)
         {
-            CurXp += experience;
+            CurrentExperience += experience;
 
-            if (CurXp >= xpToLvlUp)
+            if (CurrentExperience >= experienceToLvlUp)
             {
                 CurrentLevel++;
-                CurXp -= xpToLvlUp;
+                CurrentExperience -= experienceToLvlUp;
 
                 switch (typeOfXpProgress)
                 {
                     case TypeOfXpProgress.Arithmetic:
-                        xpToLvlUp += scaleArithmetic;
+                        experienceToLvlUp += scaleArithmetic;
                         break;
                     case TypeOfXpProgress.Geometric:
-                        xpToLvlUp *= scaleGeometric;
+                        experienceToLvlUp *= scaleGeometric;
                         break;
                     default:
                         break;

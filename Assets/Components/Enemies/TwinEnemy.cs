@@ -20,15 +20,15 @@ namespace Enemies
             {
                 var zAngleEnemy = random.Range(0, 350);
                 currentEnemy = NightPool.Spawn(enemyToSpawn, positionToSpawn.position, Quaternion.Euler(0f, 0f, zAngleEnemy));
-                //Нужно прописать еще чтобы некоторое время после спавна игнорировался урон, а то они раздуплиться не успевают(
                 yield return null;
             }
+            base.Death();
         }
 
         public override void Death()
         {
             StartCoroutine(SpawnEnemyAfterDeath());
-            base.Death();
+            //base.Death();
         }
     }
 }

@@ -7,7 +7,7 @@ public class Battery : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!col.TryGetComponent(out SystemXp systemXpScr)) return;
+        if (!col.TryGetComponent(out Experience systemXpScr)) return;
         
         systemXpScr.AddExperience(xp);
         NightPool.Despawn(gameObject);

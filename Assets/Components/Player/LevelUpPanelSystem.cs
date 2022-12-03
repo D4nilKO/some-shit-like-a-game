@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using static NonRepeatingRandom;
 
 public class LevelUpPanelSystem : MonoBehaviour
 {
     public List<Skill> skills;
 
-    public SystemXp systemXpScr;
+    [FormerlySerializedAs("systemXpScr")] public Experience experienceScr;
 
     public GameObject abilityPanel;
 
@@ -17,13 +18,13 @@ public class LevelUpPanelSystem : MonoBehaviour
 
     private void Awake()
     {
-        systemXpScr.LvlIncreaseEvent += LvlUpIncreasedCheck; // подписались
+        experienceScr.LvlIncreaseEvent += LvlUpIncreasedCheck; // подписались
         timeManagerScr = GetComponent<TimeManager>();
     }
 
     private void OnDestroy()
     {
-        systemXpScr.LvlIncreaseEvent -= LvlUpIncreasedCheck; // отписались
+        experienceScr.LvlIncreaseEvent -= LvlUpIncreasedCheck; // отписались
     }
 
     private void Start()
@@ -33,7 +34,7 @@ public class LevelUpPanelSystem : MonoBehaviour
 
     private void LvlUpIncreasedCheck()
     {
-        if (systemXpScr.countOfLevelUpsAtOnce <= 0) return;
+        if (experienceScr.countOfLevelUpsAtOnce <= 0) return;
         SetAbilityPanel(true);
         ShuffleList(skills);
 
@@ -62,10 +63,10 @@ public class LevelUpPanelSystem : MonoBehaviour
 
         SetAbilityPanel(false);
 
-        systemXpScr.countOfLevelUpsAtOnce--;
+        experienceScr.countOfLevelUpsAtOnce--;
         LvlUpIncreasedCheck();
 
-        if (systemXpScr.countOfLevelUpsAtOnce > 0) return;
+        if (experienceScr.countOfLevelUpsAtOnce > 0) return;
         StartCoroutine(timeManagerScr.WaitBeforeContinueTime());
     }
 

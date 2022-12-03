@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -7,10 +8,16 @@ public class Health : MonoBehaviour
 
     public event Action<float> HealthChangedEvent;
     public event Action DamageApplied;
+    
+    public float startTimeToIgnoreDamage = 1f;
+    [SerializeField]private float timeToIgnoreDamage;
 
     public bool IgnoreDamage { get; set; }
     public bool IgnoreHeal { get; set; }
     public bool IsAlive => CurrentHealth > 0;
+
+    [SerializeField] private float currentHealth;
+    [SerializeField] private float maxHealth = 100f;
 
     public float CurrentHealth
     {
@@ -28,14 +35,40 @@ public class Health : MonoBehaviour
         get => maxHealth;
         private set => maxHealth = value;
     }
-    
-    
-    [SerializeField] private float currentHealth;
-    [SerializeField] private float maxHealth = 100f;
 
     private void Awake()
     {
         UpdateHealthToMax();
+    }
+
+    public void ApplyInvulnerability()
+    {
+        print("хаха");
+        StopCoroutine(Invulnerability());
+        StartCoroutine(Invulnerability());
+    }
+
+    // public void ApplyInvulnerability(float startTimeToIgnoreDamage)
+    // {
+    //     StopCoroutine(Invulnerability(startTimeToIgnoreDamage));
+    //     StartCoroutine(Invulnerability(startTimeToIgnoreDamage));
+    // }
+
+    public IEnumerator Invulnerability()//float startTimeToIgnoreDamage
+    {
+        print("хаха");
+        IgnoreDamage = true;
+
+        timeToIgnoreDamage = startTimeToIgnoreDamage;
+        while (timeToIgnoreDamage > 0)
+        {
+            timeToIgnoreDamage -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+            //yield return null;
+        }
+
+        IgnoreDamage = false;
+        print("ой");
     }
 
     public void Heal(float value)

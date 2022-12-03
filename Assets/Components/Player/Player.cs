@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public static Flamethrower flamethrowerScr;
     public static OrbitalStrike orbitalStrikeScr;
     public static Shield shieldScr;
-    public static SystemXp systemXpScr;
+    public static Experience experienceScr;
     public static PlayerHealth playerHealthScr;
 
     #endregion
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         flamethrowerScr = GetComponent<Flamethrower>();
         orbitalStrikeScr = GetComponent<OrbitalStrike>();
         shieldScr = GetComponent<Shield>();
-        systemXpScr = GetComponent<SystemXp>();
+        experienceScr = GetComponent<Experience>();
         playerHealthScr = GetComponent<PlayerHealth>();
         rb = GetComponent<Rigidbody2D>();
 

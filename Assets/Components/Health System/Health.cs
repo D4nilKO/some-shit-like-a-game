@@ -9,8 +9,8 @@ public class Health : MonoBehaviour
     public event Action<float> HealthChangedEvent;
     public event Action DamageApplied;
     
-    public float startTimeToIgnoreDamage = 1f;
-    [SerializeField]private float timeToIgnoreDamage;
+    public float startTimeToIgnoreDamage = 0.5f;
+    [SerializeField]public float timeToIgnoreDamage;
 
     public bool IgnoreDamage { get; set; }
     public bool IgnoreHeal { get; set; }
@@ -43,32 +43,28 @@ public class Health : MonoBehaviour
 
     public void ApplyInvulnerability()
     {
-        print("хаха");
-        StopCoroutine(Invulnerability());
-        StartCoroutine(Invulnerability());
+        StopCoroutine(Invulnerability(startTimeToIgnoreDamage));
+        StartCoroutine(Invulnerability(startTimeToIgnoreDamage));
     }
 
-    // public void ApplyInvulnerability(float startTimeToIgnoreDamage)
-    // {
-    //     StopCoroutine(Invulnerability(startTimeToIgnoreDamage));
-    //     StartCoroutine(Invulnerability(startTimeToIgnoreDamage));
-    // }
-
-    public IEnumerator Invulnerability()//float startTimeToIgnoreDamage
+    public void ApplyInvulnerability(float startTimeToIgnoreDamage)
     {
-        print("хаха");
+        StopCoroutine(Invulnerability(startTimeToIgnoreDamage));
+        StartCoroutine(Invulnerability(startTimeToIgnoreDamage));
+    }
+
+    private IEnumerator Invulnerability(float startTimeToIgnoreDamage)
+    {
         IgnoreDamage = true;
 
         timeToIgnoreDamage = startTimeToIgnoreDamage;
         while (timeToIgnoreDamage > 0)
         {
             timeToIgnoreDamage -= Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-            //yield return null;
+            yield return null;
         }
 
         IgnoreDamage = false;
-        print("ой");
     }
 
     public void Heal(float value)

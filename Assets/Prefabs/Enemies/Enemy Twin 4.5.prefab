@@ -372,7 +372,7 @@ PrefabInstance:
     - target: {fileID: 7573513519218059841, guid: caec219bf59eaf640925d19287ab4740,
         type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 245303599976896260, guid: caec219bf59eaf640925d19287ab4740, type: 3}
@@ -443,7 +443,7 @@ MonoBehaviour:
   experience: 40
   speed: 2
   isTeleportToPlayer: 1
-  countOfEnemySpawns: 1
+  countOfEnemySpawns: 3
   enemyToSpawn: {fileID: 2658497766888042796, guid: 56bebae2db72f3b43be326d9e5aaa924,
     type: 3}
 --- !u!4 &2659143054497324510 stripped

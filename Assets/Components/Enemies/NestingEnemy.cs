@@ -5,16 +5,10 @@ namespace Components.Enemies
 {
     public class NestingEnemy : StandardEnemy
     {
-        public override void Awake()
+        public override void OnSpawn()
         {
-            //healthScr.ApplyInvulnerability();
-            StartCoroutine(healthScr.Invulnerability());
-            base.Awake();
-        }
-
-        private void Update()
-        {
-            
+            base.OnSpawn();
+            healthScr.ApplyInvulnerability();
         }
     }
 }

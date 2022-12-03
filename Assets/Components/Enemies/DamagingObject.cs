@@ -36,6 +36,7 @@ namespace Components.Enemies
             if (other.gameObject.CompareTag("Player"))
             {
                 isInTrigger = false;
+                StopCoroutine(DamageObject());
             }
         }
 

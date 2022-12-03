@@ -17,7 +17,7 @@ namespace Components.Enemies
 
         [SerializeField] private bool isTeleportToPlayer = true;
 
-        private const float DistanceToTeleportFromPlayer = 20f;
+        private const float DistanceToTeleportFromPlayer = 25f;
         private MoveTrack moveTrackScr;
 
         public virtual void Awake()
@@ -104,63 +104,14 @@ namespace Components.Enemies
             transform.rotation = Quaternion.Euler(Vector3.zero);
         }
         
-        public void OnSpawn()
+        public virtual void OnSpawn()
         {
             Initialization();
         }
 
-        public void OnDespawn()
+        public virtual void OnDespawn()
         {
             Initialization();
         }
-
-        // #region PLAYER RECOUNT HP
-        //
-        // private void OnCollisionEnter2D(Collision2D col)
-        // {
-        //     if (col.gameObject.CompareTag("Player"))
-        //     {
-        //         isInTrigger = true;
-        //         DamagingPlayer();
-        //     }
-        // }
-        //
-        // private void OnCollisionStay2D(Collision2D collision)
-        // {
-        //     if (collision.gameObject.CompareTag("Player") && isInTrigger)
-        //     {
-        //         StartCoroutine(DamageObject());
-        //     }
-        // }
-        //
-        // private void OnCollisionExit2D(Collision2D other)
-        // {
-        //     if (other.gameObject.CompareTag("Player"))
-        //     {
-        //         isInTrigger = false;
-        //     }
-        // }
-        //
-        // private IEnumerator DamageObject()
-        // {
-        //     isInTrigger = false;
-        //
-        //     timeBtwDamage = StartTimeBtwDamage;
-        //     while (timeBtwDamage > 0)
-        //     {
-        //         timeBtwDamage -= Time.deltaTime;
-        //         yield return null;
-        //     }
-        //
-        //     DamagingPlayer();
-        // }
-        //
-        // private void DamagingPlayer()
-        // {
-        //     Player.playerHealthScr.ApplyDamage(damage);
-        //     isInTrigger = true;
-        // }
-        //
-        // #endregion
     }
 }

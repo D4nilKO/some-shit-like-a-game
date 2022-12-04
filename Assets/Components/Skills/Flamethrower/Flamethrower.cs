@@ -26,8 +26,8 @@ public class Flamethrower : DamagingSkill
 
     public override AttributeSkill Attribute
     {
-        get { return attribute; }
-        set { attribute = value; }
+        get => attribute;
+        set => attribute = value;
     }
 
     #region JSON

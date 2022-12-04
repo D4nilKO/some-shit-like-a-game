@@ -13,7 +13,7 @@ namespace Components.Enemies
         //[SerializeField] private Animation damagingAnimation;
 
         [FormerlySerializedAs("xp")] [SerializeField] private float experience;
-        [SerializeField] private float speed; //скорость врага
+        //[SerializeField] private float speed;
 
         [SerializeField] private bool isTeleportToPlayer = true;
 
@@ -42,23 +42,26 @@ namespace Components.Enemies
 
         public virtual void Initialization()
         {
-            if (TryGetComponent (out EnemyHealth healthScr))
-            {
-                this.healthScr = healthScr;
-                healthScr.UpdateHealthToMax(); 
-            }
+            // if (TryGetComponent (out EnemyHealth healthScr))
+            // {
+            //     this.healthScr = healthScr;
+            //     
+            // }
+            
+            healthScr = GetComponent<EnemyHealth>();
+            healthScr.UpdateHealthToMax(); 
         }
 
-        public virtual void Move()
-        {
-            transform.position = Vector2.MoveTowards(gameObject.transform.position, Player.playerTransform.position,
-                speed * Time.fixedDeltaTime);
-        }
+        // public virtual void Move()
+        // {
+        //     transform.position = Vector2.MoveTowards(gameObject.transform.position, Player.playerTransform.position,
+        //         speed * Time.fixedDeltaTime);
+        // }
 
-        private void FixedUpdate()
-        {
-            Move();
-        }
+        // private void FixedUpdate()
+        // {
+        //     Move();
+        // }
 
         private void OnDamageEvent()
         {

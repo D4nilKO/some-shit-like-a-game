@@ -38,6 +38,11 @@ PrefabInstance:
       propertyPath: damage
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 245303599976896263, guid: caec219bf59eaf640925d19287ab4740,
+        type: 3}
+      propertyPath: experience
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 245303599976896267, guid: caec219bf59eaf640925d19287ab4740,
         type: 3}
       propertyPath: m_RootOrder
@@ -97,6 +102,16 @@ PrefabInstance:
         type: 3}
       propertyPath: damage
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795502004556489042, guid: caec219bf59eaf640925d19287ab4740,
+        type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874390128098606973, guid: caec219bf59eaf640925d19287ab4740,
+        type: 3}
+      propertyPath: speed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7573513519218059841, guid: caec219bf59eaf640925d19287ab4740,
         type: 3}

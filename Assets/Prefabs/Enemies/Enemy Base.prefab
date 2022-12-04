@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2903072510223412652}
   - component: {fileID: 7573513519218059841}
   - component: {fileID: 2492014576054859039}
+  - component: {fileID: 3874390128098606973}
   m_Layer: 0
   m_Name: Enemy Base
   m_TagString: Enemy
@@ -101,11 +102,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 100
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e721664a105e17f428c36057626b2a2e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -123,9 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthScr: {fileID: 7573513519218059841}
-  damagingAnimation: {fileID: 0}
-  speed: 2
-  xp: 2
+  experience: 2
   isTeleportToPlayer: 1
 --- !u!70 &2903072510223412652
 CapsuleCollider2D:
@@ -171,3 +170,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+--- !u!114 &3874390128098606973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245303599976896256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7619bc2bad934fed81ce046ef1043b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0

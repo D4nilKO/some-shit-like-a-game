@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 245303599976896256, guid: caec219bf59eaf640925d19287ab4740,
         type: 3}
       propertyPath: m_Name
-      value: Enemy 0
+      value: Enemy Base Stalking
       objectReference: {fileID: 0}
     - target: {fileID: 245303599976896260, guid: caec219bf59eaf640925d19287ab4740,
         type: 3}
@@ -28,6 +28,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 8de819d4918e7c24a889c4796b20eb74,
         type: 3}
+    - target: {fileID: 245303599976896261, guid: caec219bf59eaf640925d19287ab4740,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 245303599976896261, guid: caec219bf59eaf640925d19287ab4740,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 245303599976896261, guid: caec219bf59eaf640925d19287ab4740,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 245303599976896261, guid: caec219bf59eaf640925d19287ab4740,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 245303599976896263, guid: caec219bf59eaf640925d19287ab4740,
         type: 3}
       propertyPath: xp
@@ -36,6 +56,11 @@ PrefabInstance:
     - target: {fileID: 245303599976896263, guid: caec219bf59eaf640925d19287ab4740,
         type: 3}
       propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 245303599976896263, guid: caec219bf59eaf640925d19287ab4740,
+        type: 3}
+      propertyPath: experience
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 245303599976896263, guid: caec219bf59eaf640925d19287ab4740,
@@ -103,6 +128,16 @@ PrefabInstance:
       propertyPath: damage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2795502004556489042, guid: caec219bf59eaf640925d19287ab4740,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795502004556489042, guid: caec219bf59eaf640925d19287ab4740,
+        type: 3}
+      propertyPath: stalking
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7573513519218059841, guid: caec219bf59eaf640925d19287ab4740,
         type: 3}
       propertyPath: maxHealth
@@ -110,6 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2903072510223412652, guid: caec219bf59eaf640925d19287ab4740, type: 3}
+    - {fileID: 3874390128098606973, guid: caec219bf59eaf640925d19287ab4740, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: caec219bf59eaf640925d19287ab4740, type: 3}
 --- !u!1 &7377461902763621707 stripped
 GameObject:
@@ -143,3 +179,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.42}
   m_EdgeRadius: 0
+--- !u!114 &8292099540014961532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7377461902763621707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 408c1af0265a46129f5365aeea0d4c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1

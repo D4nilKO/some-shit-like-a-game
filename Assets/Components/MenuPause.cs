@@ -43,7 +43,7 @@ public class MenuPause : MonoBehaviour
             joystickPlayer.SetActive(true);
             isPaused = false;
             StopAllCoroutines();
-            StartCoroutine(timeManagerScr.WaitBeforeContinueTime());
+            timeManagerScr.ApplyWaitBeforeContinueTime();
         }
     }
 
@@ -54,7 +54,6 @@ public class MenuPause : MonoBehaviour
         joystickPlayer.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
-        //timePause = startTimePause;
     }
 
     public void Play()
@@ -64,7 +63,7 @@ public class MenuPause : MonoBehaviour
         joystickPlayer.SetActive(true);
         isPaused = false;
         StopAllCoroutines();
-        StartCoroutine(timeManagerScr.WaitBeforeContinueTime());
+        timeManagerScr.ApplyWaitBeforeContinueTime();
     }
 
     public void RestartScene()

@@ -8,8 +8,6 @@ public class Shield : PassiveSkill
     [SerializeField] private float startEndurance;
     [SerializeField] private float endurance;
     [SerializeField] private GameObject mainPrefab;
-    public bool IgnoreDamage { get; set; }
-
 
     public bool IsShieldEnable
     {
@@ -97,9 +95,6 @@ public class Shield : PassiveSkill
 
     public void ApplyDamageToShield(float damage)
     {
-        if (IgnoreDamage)
-            return;
-
         if (damage < 0)
             throw new ArgumentOutOfRangeException(nameof(damage));
 
@@ -117,7 +112,13 @@ public class Shield : PassiveSkill
         if (IsShieldEnable) return;
     }
 
-    public IEnumerator MainTimer()
+    public void ApplyRecharge()
+    {
+        StopCoroutine(MainTimer());
+        StartCoroutine(MainTimer());
+    }
+    
+    private IEnumerator MainTimer()
     {
         Attribute.timeBtwSpawns = Attribute.startTimeBtwSpawns;
         while (Attribute.timeBtwSpawns > 0)

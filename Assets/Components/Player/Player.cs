@@ -1,12 +1,18 @@
-﻿using System;
-using Components.Skills.Orbital_Strike;
+﻿using Components.Skills.Orbital_Strike;
 using Components.Skills.Plasma;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(PolygonCollider2D))]
+[RequireComponent(typeof(MoveTrack))]
 
-[RequireComponent(typeof(Rigidbody), typeof(PolygonCollider2D))]
+[RequireComponent(typeof(PlasmaV2))]
+[RequireComponent(typeof(Whip))]
+[RequireComponent(typeof(Flamethrower))]
+[RequireComponent(typeof(OrbitalStrike))]
+[RequireComponent(typeof(Shield))]
+[RequireComponent(typeof(Experience))]
+[RequireComponent(typeof(PlayerHealth))]
 public class Player : MonoBehaviour
 {
     #region FIELDS
@@ -27,7 +33,7 @@ public class Player : MonoBehaviour
     #endregion
 
     #region MOVEMENT
-    
+
     [HideInInspector] public float speed;
     [SerializeField] public float startSpeed;
     [HideInInspector] public Vector2 moveVelocity;
@@ -71,20 +77,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        //minuteCounter = gameTime.Minute;
-
         speed = startSpeed;
     }
 
     #endregion
 
     #region UPDATES
-
-    private void Update()
-    {
-        
-    }
-
+    
     // физ составляющая движка
     private void FixedUpdate()
     {
@@ -96,7 +95,7 @@ public class Player : MonoBehaviour
     private void Movement()
     {
         vectorTrack = moveTrackScr.MovementLogic();
-        
+
         moveVelocity = vectorTrack.normalized * speed;
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime); // движение
 
@@ -105,7 +104,7 @@ public class Player : MonoBehaviour
         {
             case false when vectorTrack.x > 0:
                 facingRight = !facingRight;
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = Vector3.one;
                 break;
             case true when vectorTrack.x < 0:
                 facingRight = !facingRight;

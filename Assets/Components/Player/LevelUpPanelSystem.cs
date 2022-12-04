@@ -67,7 +67,7 @@ public class LevelUpPanelSystem : MonoBehaviour
         LvlUpIncreasedCheck();
 
         if (experienceScr.countOfLevelUpsAtOnce > 0) return;
-        StartCoroutine(timeManagerScr.WaitBeforeContinueTime());
+        timeManagerScr.ApplyWaitBeforeContinueTime();
     }
 
     public void SetAbilityPanel(bool set)

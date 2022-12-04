@@ -15,11 +15,12 @@ public class PlayerHealth : Health
 
     public new void ApplyDamage(float damage)
     {
+        if (IgnoreDamage) return;
+
         if (shieldScr.IsShieldEnable)
         {
             shieldScr.ApplyDamageToShield(damage);
-            StopAllCoroutines();
-            StartCoroutine(shieldScr.MainTimer());
+            shieldScr.ApplyRecharge();
         }
         else base.ApplyDamage(damage);
 
@@ -41,7 +42,8 @@ public class PlayerHealth : Health
         UpdateHealthToMax();
         StopAllCoroutines();
         shieldScr.UpdateEnduranceToMax();
-        StartCoroutine(timeManagerScr.WaitBeforeContinueTime());
+        timeManagerScr.ApplyWaitBeforeContinueTime();
+        ApplyInvulnerability();
     }
 
     protected override float ProcessDamage(float damage) => damage * Stats.DamageTakingMultiplier;

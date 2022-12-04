@@ -9,8 +9,8 @@ public class Health : MonoBehaviour
     public event Action<float> HealthChangedEvent;
     public event Action DamageApplied;
     
-    public float startTimeToIgnoreDamage = 0.5f;
-    [SerializeField]public float timeToIgnoreDamage;
+    private readonly float startTimeToIgnoreDamage = 0.5f;
+    private float timeToIgnoreDamage;
 
     public bool IgnoreDamage { get; set; }
     public bool IgnoreHeal { get; set; }

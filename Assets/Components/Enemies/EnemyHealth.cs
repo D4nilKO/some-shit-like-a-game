@@ -1,6 +1,4 @@
-﻿using System;
-using Enemies;
-using UnityEditor;
+﻿
 
 namespace Components.Enemies
 {

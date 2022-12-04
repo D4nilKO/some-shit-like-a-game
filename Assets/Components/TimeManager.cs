@@ -50,13 +50,19 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    public IEnumerator WaitBeforeContinueTime()
+    public void ApplyWaitBeforeContinueTime()
+    {
+        StopCoroutine(WaitBeforeContinueTime());
+        StartCoroutine(WaitBeforeContinueTime());
+    }
+
+    private IEnumerator WaitBeforeContinueTime()
     {
         timePauseBeforeContinueTime = startTimePauseBeforeContinueTime;
-        while (timePauseBeforeContinueTime > 0) //если время больше 0, то уменьшаем его по чуть-чуть
+        while (timePauseBeforeContinueTime > 0) 
         {
-            timePauseBeforeContinueTime -= Time.unscaledDeltaTime; //само уменьшение таймера
-            yield return null; //продолжить выполнение после этого кадра
+            timePauseBeforeContinueTime -= Time.unscaledDeltaTime; 
+            yield return null; 
         }
 
         Time.timeScale = timeScale;

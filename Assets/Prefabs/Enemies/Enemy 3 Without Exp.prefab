@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3271165967008300781, guid: cd462b229caf24d499a017b55d159194,
+        type: 3}
+      propertyPath: maxHealth
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 5122981078461793191, guid: cd462b229caf24d499a017b55d159194,
         type: 3}
       propertyPath: m_RootOrder
@@ -93,8 +98,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5930931e6a164717ae1a4ccc10f2246f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8067281658951289805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2658497766888042796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899d5ce0070ecf147b8f0280651edaa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   healthScr: {fileID: 5663586156745641069}
-  experience: 1
+  experience: 0
   speed: 1
   isTeleportToPlayer: 1
 --- !u!114 &5663586156745641069 stripped

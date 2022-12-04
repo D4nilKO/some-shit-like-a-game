@@ -6622,6 +6622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToSpawn:
   - {fileID: 8463220029830575820, guid: a7cd48d9d082f46468df5fe6e0c32f76, type: 3}
+  - {fileID: 4941179730822699919, guid: 0ff6b417f2a822c4cb9340f20d746ded, type: 3}
   container: {fileID: 1193700758}
   startTimeBtwSpawns: 60
   radius: 30
@@ -12398,7 +12399,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
-  - {fileID: 4941179730822699919, guid: 0ff6b417f2a822c4cb9340f20d746ded, type: 3}
   - {fileID: 2505542136432207859, guid: 9eaef63a686d4a047b727b72c125295b, type: 3}
   container: {fileID: 1193700758}
   startTimeBtwSpawns: 20
@@ -12591,7 +12591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveInput: {x: 0, y: 0}
   joystick: {fileID: 483778675}
-  controlType: 1
+  controlType: 0
 --- !u!114 &2058738134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12641,8 +12641,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 1
-  startTimeToIgnoreDamage: 1
-  timeToIgnoreDamage: 0
   currentHealth: 0
   maxHealth: 100
   deathPanel: {fileID: 538045610}
@@ -12755,7 +12753,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058738120}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8db9b52eb10468f8c2d70a470561004, type: 3}
   m_Name: 

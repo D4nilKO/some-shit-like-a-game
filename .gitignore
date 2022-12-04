@@ -76,3 +76,4 @@ crashlytics-build.properties
 !*.obj
 .plastic/plastic.wktree
 *.wktree
+*.psd

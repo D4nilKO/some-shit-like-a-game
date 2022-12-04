@@ -13,7 +13,8 @@ namespace Components.Enemies
         //[SerializeField] private Animation damagingAnimation;
 
         [FormerlySerializedAs("xp")] [SerializeField] private float experience;
-        //[SerializeField] private float speed;
+        [SerializeField, Min(0)] public float speed;
+        public bool isFrozen;
 
         [SerializeField] private bool isTeleportToPlayer = true;
 

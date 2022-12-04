@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 0 Stalking
       objectReference: {fileID: 0}
+    - target: {fileID: 7377461902763621708, guid: e642f9fcc1808a34fb82513a776980c3,
+        type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8292099540014961532, guid: e642f9fcc1808a34fb82513a776980c3,
         type: 3}
       propertyPath: speed

@@ -3,9 +3,17 @@ using UnityEngine;
 
 namespace Components.Enemies
 {
+    [RequireComponent(typeof(BaseEnemy))]
     public class OnceTurnedToPlayerMove : MonoBehaviour, IPoolItem
     {
-        [SerializeField] private float speed;
+        private BaseEnemy enemyScr;
+        
+        //[SerializeField] private float speed;
+
+        private void Start()
+        {
+            enemyScr = GetComponent<BaseEnemy>();
+        }
 
         public void OnSpawn()
         {
@@ -19,12 +27,13 @@ namespace Components.Enemies
 
         private void FixedUpdate()
         {
+            if (enemyScr.isFrozen) return;
             Move();
         }
 
         private void Move()
         {
-            transform.Translate(Vector3.up * (speed * Time.fixedDeltaTime));
+            transform.Translate(Vector3.up * (enemyScr.speed * Time.fixedDeltaTime));
         }
     }
 }
